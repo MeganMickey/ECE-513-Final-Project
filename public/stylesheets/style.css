@@ -22,4 +22,9 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  
+  footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    }
