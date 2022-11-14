@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('mongodbwithauthentication:server');
+var debug = require('debug')('ece-513-final-project:server');
 var http = require('http');
 
 /**
