@@ -1,4 +1,4 @@
-/*Here is the css for the application*/
+/*Here is the css for the application
 
 @font-face {
     font-family: 'Material Icons';
@@ -21,6 +21,123 @@
     direction: ltr;
     -webkit-font-smoothing: antialiased;
   }
+*/
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(20, 50, 150, 0.50), rgba(0, 0, 0, 0.75)), url("globalCapture.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar {
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 400px;
+  font-size: 30px;
+  text-align: center;
+  color: #0db6ff;
+  text-decoration: none;
+  background-color: rgba(120, 120, 120, 0.4);
+  font-weight: bold;
+  margin: 20px 10px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.navbar ul li::after {
+  content: '';
+  height: 3px;
+  width: 0;
+  background: #009bdd;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  position: absolute;
+  top: 24%;
+  transform: translateY(-24%);
+  text-align: center;
+  color: #fff;
+}
+
+.content h1 {
+  font-size: 56px;
+  margin-top: 80px;
+}
+
+.content p {
+  margin: 20px auto;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 25px;
+}
+
+button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #009bdd;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+span {
+  background:#009bdd;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+
+
+
+/*
 
   footer{
     position: fixed;
@@ -28,3 +145,91 @@
     bottom: 0;
     width: 100%;
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: sans-serif;
+    }
+    
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      color: white;
+      padding-left: 20px;
+    }
+    
+    .hamburger {
+      padding-right: 20px;
+      cursor: pointer;
+    }
+    
+    .hamburger .line {
+      display: block;
+      width: 40px;
+      height: 5px;
+      margin-bottom: 10px;
+      background-color: white;
+    }
+    
+    .nav__link {
+      position: fixed;
+      width: 94%;
+      top: 5rem;
+      left: 18px;
+      background-color: lightblue;
+    }
+    
+    .nav__link a {
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+    .nav__link a:hover {
+      background-color: lightcoral;
+    }
+    
+    .hide {
+      display: none;
+    }
+
+
+    /*The desktop view is done here*/
+    @media screen and (min-width: 600px) {
+      .nav__link {
+        display: block;
+        position: static;
+        width: auto;
+        margin-right: 20px;
+        background: none;
+      }
+    
+      .nav__link a {
+        display: inline-block;
+        padding: 15px 20px;
+      }
+    
+      .hamburger {
+        display: none;
+      }
+    }
+
