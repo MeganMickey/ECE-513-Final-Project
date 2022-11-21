@@ -42,12 +42,12 @@
 
 .logo {
   width: 400px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 30px;
   text-align: center;
   color: #0db6ff;
   text-decoration: none;
   background-color: rgba(120, 120, 120, 0.4);
-  font-weight: bold;
   margin: 20px 10px;
   border-radius: 25px;
   overflow: hidden;
@@ -56,15 +56,16 @@
 .navbar ul li {
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
+  margin: 0 10px;
   position: relative;
 }
 
 .navbar ul li a {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .navbar ul li::after {
@@ -85,25 +86,28 @@
 .content {
   width: 100%;
   position: absolute;
-  top: 24%;
-  transform: translateY(-24%);
+  top: 25%;
+  transform: translateY(-25%);
   text-align: center;
   color: #fff;
 }
 
 .content h1 {
-  font-size: 56px;
-  margin-top: 80px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 50px;
+  margin-top: 85px;
 }
 
 .content p {
-  margin: 20px auto;
-  font-size: 18px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 10px auto;
+  font-size: 17px;
   font-weight: 100;
   line-height: 25px;
 }
 
-button {
+#app-button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 200px;
   padding: 15px 0;
   text-align: center;
@@ -133,6 +137,8 @@ span {
 button:hover span {
   width: 100%;
 }
+
+
 
 
 
