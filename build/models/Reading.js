@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const Physician = require('./Physician');
-const Patient = require('.Patient');
+const Patient = require('./Patient');
 
 
 const readingSchema = new Schema({

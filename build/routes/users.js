@@ -1,12 +1,9 @@
-"use strict";
+var express = require('express');
+var router = express.Router();
 
-const express = require('express');
-let router = express.Router();
-
-
-app.get('/', function(req, res){
-    res.send("GET request inside of" + __dirname + "users.js");
- });
-
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
 
 module.exports = router;
