@@ -43,7 +43,7 @@
 .logo {
   width: 400px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 30px;
+  font-size: 32px;
   text-align: center;
   color: #0db6ff;
   text-decoration: none;
@@ -65,7 +65,7 @@
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 .navbar ul li::after {
@@ -94,25 +94,27 @@
 
 .content h1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 50px;
+  font-size: 55px;
+
   margin-top: 85px;
 }
 
 .content p {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 10px auto;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 100;
   line-height: 25px;
 }
 
 #app-button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   width: 200px;
   padding: 15px 0;
   text-align: center;
   margin: 20px 10px;
   border-radius: 25px;
+  font-size: 16px;
   font-weight: bold;
   border: 2px solid #009bdd;
   background: transparent;
