@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');     // Parses JSON in body
-
+const jwt = require('jwt-simple');
 
 // Including the routers for use in the app.
 var indexRouter = require('./routes/index');
