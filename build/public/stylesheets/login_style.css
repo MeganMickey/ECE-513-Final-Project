@@ -63,9 +63,9 @@
 
 .container {
   min-height: calc(60vh - 40px * 2);
-  transform: translate(26%, 2%);
+  transform: translate(30.3%, 12%);
   display: grid;
-  grid-template-columns: 47.5% 50%;
+  grid-template-columns: 40% 50%;
   border-radius: 10px;
 }
 
