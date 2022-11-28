@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="stylesheets/signup_style.css" />
-    <script src="javascripts/login.js"></script>
+    <script src="javascripts/signup.js"></script>
 
     <title>Heart Rate Monitor Application</title>
 </head>
-<body class = "banner">
+
+<body class="banner">
     <div>
-        <div class = "navbar">
+        <div class="navbar">
             <a href="navigation.html" class="logo">UA HEART MONITORING</a>
             <ul>
                 <li><a href="navigation.html">Home</a></li>
@@ -17,44 +19,47 @@
                 <li><a href="#">Login</a></li>
             </ul>
         </div>
-    </div class = "container">
-        <div class = "register">
-            <div class = "Register-header">
-                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;; padding-left: 52px; color: white; font-size: 36px; margin-bottom: 25px;">Account Registration</h1><br>
-            </div>
-            <form class = "register-form">
-                <div class = "register-form-content">
-                    <div class = "form-item">
-                        <label for = "name">Full Name</label>
-                        <input type = "text" id = "name">
-                    </div>
-                    <div class = "form-item">
-                        <label for = "email">Enter Email</label>
-                        <input type = "text" id = "email">
-                    </div>
-                    <div class = "form-item">
-                        <label for = "password">Enter Password</label>
-                        <input type = "password" id = "password">
-                    </div>
-                    <div class = "form-item">
-                        <label for = "password-check">Re-Enter Password</label>
-                        <input type = "text" id = "email">
-                    </div>
-                    <div class = "form-item">
-                        <div class = "pick-one">
-                            <input type="radio" id="yesPatient" name = "twoChoice" value = "patient" checked>
-                            <label for="yesPatient" class = "radioLabel">Patient</label><br>
-                            <input type="radio" id="yesPhysician" name = "twoChoice" value = "physician">
-                            <label for="yesPhysician" class = "radioLabel">Physician</label><br>
-                        </div>
-                    </div>
-                    <button type = "submit" id = "sign-up-button">Sign In</button>
-                </div>
-                <p> </p>
-            </form>
+    </div class="container">
+    <div class="register">
+        <div class="Register-header">
+            <h1
+                style="font-family: Georgia, 'Times New Roman', Times, serif;; padding-left: 52px; color: white; font-size: 36px; margin-bottom: 25px;">
+                Account Registration</h1><br>
         </div>
+        <form class="register-form">
+            <div class="register-form-content">
+                <div class="form-item">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name">
+                </div>
+                <div class="form-item">
+                    <label for="email">Enter Email</label>
+                    <input type="text" id="email">
+                </div>
+                <div class="form-item">
+                    <label for="password">Enter Password</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="form-item">
+                    <label for="password-check">Re-Enter Password</label>
+                    <input type="text" id="psswordConfirm">
+                </div>
+                <div class="form-item">
+                    <div class="pick-one">
+                        <input type="radio" id="yesPatient" name="twoChoice" value="patient" checked>
+                        <label for="yesPatient" class="radioLabel">Patient</label><br>
+                        <input type="radio" id="yesPhysician" name="twoChoice" value="physician">
+                        <label for="yesPhysician" class="radioLabel">Physician</label><br>
+                    </div>
+                </div>
+                <button type="submit" id="sign-up-button">Sign Up</button>
+            </div>
+            <p> </p>
+        </form>
+    </div>
 
 </body>
+
 </html>
 
 
@@ -75,4 +80,3 @@
             <input type = "password" placeholder = "">
             <input type = "button" id = "sign-in-button" value = "submit">
         </form>
-
