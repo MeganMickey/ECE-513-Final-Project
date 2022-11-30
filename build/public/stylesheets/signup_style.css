@@ -6,6 +6,7 @@
   background-image: linear-gradient(rgba(20, 50, 150, 0.50), rgba(0, 0, 0, 0.75)), url("globalCapture.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .navbar {
@@ -62,9 +63,9 @@
 
 .container {
   min-height: calc(60vh - 40px * 2);
-  transform: translate(33%, 15%);
+  transform: translate(27%, -1%);
   display: grid;
-  grid-template-columns: 34% 50%;
+  grid-template-columns: 47.5% 50%;
   border-radius: 10px;
 }
 
@@ -76,15 +77,7 @@
 }
 
 .register-header {
-  margin-bottom: 50px;
-}
-
-.register-header p {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
-  font-size: 18px;
-  color: white;
-  transform: translateX(31px);
-  padding-left: 100px;
+  margin-bottom: 25px;
 }
 
 .register-form {
@@ -93,10 +86,10 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.register-form-content {
+.register-form-content:not(.radioLabel, input[type = 'radio']) {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 25px;
 }
 
 input[type = 'text'], input[type = 'password'] {
@@ -112,19 +105,16 @@ input[type = 'text'], input[type = 'password'] {
 }
 
 input[type = 'radio'] {
-  display: flex;
   width: 15px;
   height: 15px;
   accent-color: #0db6ff;
-  justify-content: space-between;
-  transform: translateX(111px);
 }
 
 .radioLabel {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
   color: white;
   font-size: 14px;
-  transform: translateX(111px);
+  transform: translateY(0px);
 }
 
 #sign-up-button {
