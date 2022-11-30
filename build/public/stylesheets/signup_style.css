@@ -63,7 +63,7 @@
 
 #container {
   min-height: calc(60vh - 40px * 2);
-  transform: translate(30.3%, 8%);
+  transform: translate(30.3%, 11%);
   display: grid;
   grid-template-columns: 38.2% 50%;
   border-radius: 10px;
@@ -83,10 +83,10 @@
 #register-form {
   width: 450px;
   padding-left: 100px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
 }
 
-#register-form-content:not(.radioLabel, input[type = 'radio']) {
+#register-form-content:not(#radioLabel, input[type = 'radio']) {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -113,8 +113,7 @@ input[type = 'radio'] {
 #radioLabel {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
   color: white;
-  font-size: 14px;
-  transform: translateY(0px);
+  font-size: 15px;
 }
 
 #sign-up-button {

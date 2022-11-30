@@ -129,19 +129,19 @@ input[type = 'checkbox'] {
 }
 
 input[type = 'radio'] {
-display: flex;
-width: 15px;
-height: 15px;
-accent-color: #0db6ff;
-justify-content: space-between;
-transform: translateX(111px);
+  display: flex;
+  width: 15px;
+  height: 15px;
+  accent-color: #0db6ff;
+  justify-content: space-between;
+  transform: translateX(111px);
 }
 
 #radioLabel {
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-color: white;
-font-size: 14px;
-transform: translateX(111px);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: white;
+  font-size: 14px;
+  transform: translateX(111px);
 }
 
 #sign-in-button {
