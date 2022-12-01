@@ -60,3 +60,78 @@
 #navbar ul li:hover::after {
   width: 100%;
 }
+
+#container {
+  min-height: calc(60vh - 40px * 2);
+  transform: translate(30.3%, 10%);
+  display: grid;
+  grid-template-columns: 38.5% 50%;
+  border-radius: 10px;
+}
+
+#account {
+  display: absolute;
+  flex-direction: column;
+  justify-content: center;
+  background-color:rgba(55, 140, 200, 0.4)
+}
+
+#account-header {
+  margin-bottom: 50px;
+}
+
+#account-header p {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
+  font-size: 18px;
+  color: white;
+  transform: translateX(130px);
+  padding-left: 100px;
+}
+
+#account-form {
+  width: 450px;
+  padding-left: 100px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#account-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+input[type = 'text'], input[type = 'password'] {
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.85);
+  height: 35px;
+  padding: 0 2rem;
+  width: 86%;
+  outline: none;
+  transition: background .5s;
+  font-size: 18px;
+  border-radius: 100px;
+}
+
+#update-button {
+  border: none;
+  padding: 1rem;
+  border-radius: 100px;
+  background-color:#0db6ff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 55px;
+  cursor: pointer;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
+}
+
+#form-item label {
+  display: inline-block;
+  margin-bottom: 10px;
+  position: absolute;
+  padding: 0 10px;
+  transform: translate(0px, -19px);
+  font-size: 14px;
+  color: white;
+}
