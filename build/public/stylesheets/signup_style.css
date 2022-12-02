@@ -6,7 +6,6 @@
   background-image: linear-gradient(rgba(20, 50, 150, 0.50), rgba(0, 0, 0, 0.75)), url("globalCapture.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 #navbar {
@@ -21,7 +20,7 @@
 #logo {
   width: 400px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 30px;
+  font-size: 32px;
   text-align: center;
   color: #0db6ff;
   text-decoration: none;
@@ -57,8 +56,33 @@
   transition: 0.5s;
 }
 
-#navbar ul li:hover::after {
+#navbar ul li:hover:after {
   width: 100%;
+}
+
+#dropdown-content {
+  top: 41px;
+  text-align: center;
+  display: none;
+  position: absolute;
+  background-color:#009bdd;
+  width: 167.5px;
+  z-index: 1;
+}
+
+#dropdown-content a {
+  color: white;
+  padding: 16px 10px 14px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown:hover #dropdown-content {
+  display: block;
+}
+
+#dropdown-content a:hover {
+  background-color: #FF8C00;
 }
 
 #container {
@@ -83,7 +107,7 @@
 #register-form {
   width: 450px;
   padding-left: 100px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #register-form-content:not(#radioLabel, input[type = 'radio']) {
