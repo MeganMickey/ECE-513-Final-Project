@@ -79,8 +79,33 @@
   transition: 0.5s;
 }
 
-#navbar ul li:hover::after {
+#navbar ul li:hover:after {
   width: 100%;
+}
+
+#dropdown-content {
+  top: 41px;
+  text-align: center;
+  display: none;
+  position: absolute;
+  background-color:#009bdd;
+  width: 167.5px;
+  z-index: 1;
+}
+
+#dropdown-content a {
+  color: white;
+  padding: 16px 10px 14px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown:hover #dropdown-content {
+  display: block;
+}
+
+#dropdown-content a:hover {
+  background-color: #FF8C00;
 }
 
 #content {
@@ -95,7 +120,6 @@
 #content h1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 55px;
-
   margin-top: 85px;
 }
 
