@@ -12,7 +12,7 @@ var usersRouter = require('./routes/users');
 var physiciansRouter = require('./routes/physicians');
 var patientsRouter = require('./routes/patients');
 var readingsRouter = require('./routes/readings');
-var devicesRouter = require('.routes/devices');
+var devicesRouter = require('./routes/devices');
 
 
 
