@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var physiciansRouter = require('./routes/physicians');
 var patientsRouter = require('./routes/patients');
 var readingsRouter = require('./routes/readings');
+var devicesRouter = require('.routes/devices');
 
 
 
@@ -87,7 +88,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/physicians', physiciansRouter);
 app.use('/patients', patientsRouter);
-app.use('/readings', readingsRouter)
+app.use('/readings', readingsRouter);
+app.use('/devices', devicesRouter);
 
 
 // catch 404 and forward to error handler

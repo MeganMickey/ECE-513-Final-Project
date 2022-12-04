@@ -11,6 +11,4 @@ router("/timeReq", function(req, res){
 })
 
 
-
-
 module.exports = router;
