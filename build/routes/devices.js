@@ -8,7 +8,7 @@ var interval = 30; //In minutes
 
 router.post("/timeReq", function(req, res){
   var today = new Date();
-  var time_in_sec = (today.getHours()*3600)+(today.getMinutes()*60)+today.getSeconds;
+  var time_in_sec = (parseInt(today.getHours())*3600)+(parseInt(today.getMinutes())*60)+parseInt(today.getSeconds);
   res.status(200).json({start: start_hour, end: end_hour, time_int: interval, curr_time: time_in_sec});
 })
 
