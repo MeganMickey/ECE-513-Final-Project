@@ -15,7 +15,7 @@ router.post("/timeReq", function(req, res){
 });
 
 router.post("/healthData", function(req, res){
-  console.log(req);
+  console.log(req.body.json);
   res.status(201);
   /*
   const newReading = new Reading({
