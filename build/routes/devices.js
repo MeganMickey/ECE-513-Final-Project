@@ -14,7 +14,7 @@ router.post("/timeReq", function(req, res){
   res.status(200).json({start: start_hour, end: end_hour, time_int: interval});
 });
 
-router.post("/healthData", function(req, res){;
+router.post("/healthData", function(req, res){
   console.log(req.body.hr);
   const newReading = new Reading({
     time: req.body.rdtm,
