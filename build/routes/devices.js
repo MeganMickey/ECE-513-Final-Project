@@ -15,11 +15,10 @@ router.post("/timeReq", function(req, res){
 });
 
 router.post("/healthData", function(req, res){
-  console.log(req.body);
   const newReading = new Reading({
-    time: req.body.rdtm,
-    heartRate: req.body.hr,
-    bloodOxygen: req.body.spo2
+    time: req.body.json.rdtm,
+    heartRate: req.body.json.hr,
+    bloodOxygen: req.body.json.spo2
   });
   newReading.save(function(err, Reading){
     if(err){
