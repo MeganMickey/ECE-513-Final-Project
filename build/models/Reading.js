@@ -12,6 +12,10 @@ const readingSchema = new Schema({
         type: Number,
         required: true
     },
+    bloodOxygen: {
+        type: Number,
+        required: true  
+    },
     patient: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Patient'
