@@ -6,7 +6,7 @@ var Reading = require("../models/Reading");
 //Eventually store these in the database
 var start_hour = 6; //Use military time hours
 var end_hour = 22;
-var interval = 30; //In minutes
+var interval = 5; //In minutes
 
 router.post("/timeReq", function(req, res){
   //let today = new Date();
