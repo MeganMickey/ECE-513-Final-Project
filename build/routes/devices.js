@@ -23,7 +23,7 @@ router.post("/healthData", function(req, res){
   });
   newReading.save(function(err, Reading){
     if(err){
-      res.status(400).send(err);
+      res.status(400).send("no data input");
     }
     else {
       res.status(201);
