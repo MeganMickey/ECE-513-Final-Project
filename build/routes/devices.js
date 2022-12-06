@@ -15,6 +15,9 @@ router.post("/timeReq", function(req, res){
 });
 
 router.post("/healthData", function(req, res){
+  console.log(req);
+  res.status(201);
+  /*
   const newReading = new Reading({
     time: req.body.json.rdtm,
     heartRate: req.body.json.hr,
@@ -27,7 +30,7 @@ router.post("/healthData", function(req, res){
     else {
       res.status(201);
     }
-  });
+  });*/
 });
 
 module.exports = router;
