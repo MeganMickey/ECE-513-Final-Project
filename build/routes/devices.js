@@ -1,4 +1,5 @@
 var express = require('express');
+const { rawListeners } = require('../models/Reading');
 var router = express.Router();
 var Reading = require("../models/Reading");
 
@@ -13,13 +14,12 @@ router.post("/timeReq", function(req, res){
   res.status(200).json({start: start_hour, end: end_hour, time_int: interval});
 });
 
-router.post("/healthData", function(req, res){
-  data = JSON.parse(req.body.data);
-  console.log(data);
+router.post("/healthData", function(req, res){;
+  console.log(req.body.hr);
   const newReading = new Reading({
-    time: data.rdtm,
-    heartRate: data.hr,
-    bloodOxygen: data.spo2
+    time: req.body.rdtm,
+    heartRate: req.body.hr,
+    bloodOxygen: req.body.spo2
   });
   newReading.save(function(err, Reading){
     if(err){
