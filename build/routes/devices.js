@@ -11,6 +11,16 @@ var interval = 5; //In minutes
 router.post("/timeReq", function(req, res){
   //let today = new Date();
   //let time = today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+  if(start_hour < 10){
+    start_hour = "0"+start_hour;
+  }
+  if(interval < 10){
+    interval = "0"+interval;
+  }
+  if(end_hour < 10){
+    end_hour = "0"+end_hour;
+  }
+  console.log(interval);
   res.status(200).json({start: start_hour, end: end_hour, time_int: interval});
 });
 
