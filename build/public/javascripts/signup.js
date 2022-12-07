@@ -1,28 +1,30 @@
 // Javascript that will run whenever the signup page is loaded.
 
+// Notify console that the script is loaded.
 console.log('window.onload: javascript/signup.js');
 
+// Populating the html with jQuery library.
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+document.getElementsByTagName('head')[0].appendChild(script);
 
 
 
 
-var submitElement = document.getElementsByTagName('input');
+
+let registerForm = document.querySelectorAll(".register-form");
+
+console.log(registerForm);
 
 
-
-let formItems = $("div.form-item input");
-
-console.log(formItems);
-/*console.log(submitElement);
-
-var arr = [].slice.call(submitElement);
-console.log(arr);
-*/
-
-let form = document.getElementsByClassName('register-form-content').getElementById('name');
+// var arr = [].slice.call(submitElement);
+// console.log(arr);
 
 
-console.log(form);
+//let form = document.getElementsByClassName('register-form-content').getElementById('name');
+
+
+//console.log(form);
 
 
 
