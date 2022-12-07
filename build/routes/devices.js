@@ -16,12 +16,12 @@ router.post("/timeReq", function(req, res){
 
 router.post("/healthData", function(req, res){
   console.log(req.body.json);
-  
   const newReading = new Reading({
     time: req.body.json.rdtm,
     heartRate: req.body.json.hr,
     bloodOxygen: req.body.json.spo2
   });
+  console.log(newReading);
   res.status(201).send("successful!");
   /*
   newReading.save(function(err, Reading){
