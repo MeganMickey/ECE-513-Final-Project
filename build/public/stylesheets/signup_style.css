@@ -6,7 +6,6 @@
   background-image: linear-gradient(rgba(20, 50, 150, 0.50), rgba(0, 0, 0, 0.75)), url("globalCapture.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
 #navbar {
@@ -21,7 +20,7 @@
 #logo {
   width: 400px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 30px;
+  font-size: 32px;
   text-align: center;
   color: #0db6ff;
   text-decoration: none;
@@ -57,13 +56,38 @@
   transition: 0.5s;
 }
 
-#navbar ul li:hover::after {
+#navbar ul li:hover:after {
   width: 100%;
+}
+
+#dropdown-content {
+  top: 41px;
+  text-align: center;
+  display: none;
+  position: absolute;
+  background-color:#009bdd;
+  width: 167.5px;
+  z-index: 1;
+}
+
+#dropdown-content a {
+  color: white;
+  padding: 16px 10px 14px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown:hover #dropdown-content {
+  display: block;
+}
+
+#dropdown-content a:hover {
+  background-color: #FF8C00;
 }
 
 #container {
   min-height: calc(60vh - 40px * 2);
-  transform: translate(30.3%, 8%);
+  transform: translate(30.3%, 11%);
   display: grid;
   grid-template-columns: 38.2% 50%;
   border-radius: 10px;
@@ -86,7 +110,7 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#register-form-content:not(.radioLabel, input[type = 'radio']) {
+#register-form-content:not(#radioLabel, input[type = 'radio']) {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -113,8 +137,7 @@ input[type = 'radio'] {
 #radioLabel {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;;
   color: white;
-  font-size: 14px;
-  transform: translateY(0px);
+  font-size: 15px;
 }
 
 #sign-up-button {

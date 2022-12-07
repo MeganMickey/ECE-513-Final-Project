@@ -14,10 +14,50 @@
             <a href="navigation.html" id="logo">UA HEART MONITORING</a>
             <ul>
                 <li><a href="patient.html">Return</a></li>
-                <li><a href="#">Navigation</a></li>
+                <li id="dropdown"><a href="#" id="dropdown-button">Information</a>
+                    <div id="dropdown-content">
+                        <a href="device.html">This Device</a>
+                        <a href="about_us.html">About Us</a>
+                    </div>
+                </li>
                 <li><a href="navigation.html">Log out</a></li>
             </ul>
     </div>
+
+    <div id="container">
+        <div id="account">
+            <div id="account-header">
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;; padding-left: 108px; color: white; font-size: 41px; margin-bottom: 25px;">Account Information</h1>
+                <p>Modify your Account Info</p>
+            </div>
+            <form id="account-form">
+                <div id="account-form-content">
+                    <div id="form-item">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div id="form-item">
+                        <label for="physician-select">Select Physician</label>
+                        <input type="text" id="physician-select">
+                    </div>
+                    <div id="form-item">
+                        <label for="device-id">Device ID</label>
+                        <input type="text" id="device-id">
+                    </div>
+                    <div id="form-item">
+                        <label for="email">Email</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div id="form-item">
+                        <label for="password">Password</label>
+                        <input type="password" id="password">
+                    </div>
+                    <button type="submit" id="update-button">Update</button>
+                </div>
+                <p> </p>
+            </form>
+        </div>
+    </div>    
 
 </body>
 </html>
