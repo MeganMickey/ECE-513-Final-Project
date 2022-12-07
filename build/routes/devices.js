@@ -1,7 +1,8 @@
 var express = require('express');
-const { rawListeners } = require('../models/Reading');
+//const { rawListeners } = require('../models/Reading');
 var router = express.Router();
 var Reading = require("../models/Reading");
+var Patient = require("../models/Patient");
 
 //Eventually store these in the database
 var start_hour = 6; //Use military time hours
@@ -35,15 +36,15 @@ router.post("/healthData", function(req, res){
   });
   console.log(newReading);
   res.status(201).send("successful!");
-  /*
   newReading.save(function(err, Reading){
     if(err){
-      res.status(400).send("no data input");
+      console.log(err);
+      res.status(400).send(err);
     }
     else {
       res.status(201);
     }
-  });*/
+  });
 });
 
 module.exports = router;
