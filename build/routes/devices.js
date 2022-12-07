@@ -11,9 +11,9 @@ var interval = 5; //In minutes
 router.post("/timeReq", function(req, res){
   //let today = new Date();
   //let time = today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
-  var edit_start_hour = start_hour;
-  var edit_end_hour = end_hour;
-  var edit_interval = string(interval);
+  var edit_start_hour = ""+start_hour;
+  var edit_end_hour = ""+end_hour;
+  var edit_interval = ""+interval;
   if(start_hour < 10){
     edit_start_hour = "0"+start_hour;
   }
