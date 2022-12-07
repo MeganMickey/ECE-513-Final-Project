@@ -20,17 +20,24 @@ const patientSchema = new Schema({
     },
     // Including an array of readings for the patient.
     readings: {
-        type:
-            [{
+        type: [
+            {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Reading'
-            }]
+            }
+        ]
     },
     // The patient has a physician.
     physician: {
 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Physician'
+
+    },
+    device: {
+
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Device'
 
     }
 
