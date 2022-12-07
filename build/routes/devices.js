@@ -23,7 +23,6 @@ router.post("/timeReq", function(req, res){
   if(end_hour < 10){
     edit_end_hour = "0"+end_hour;
   }
-  console.log(edit_interval);
   res.status(200).json({start: edit_start_hour, end: edit_end_hour, time_int: edit_interval});
 });
 
