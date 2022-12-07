@@ -25,7 +25,7 @@ router.post("/timeReq", function(req, res){
     edit_end_hour = "0"+end_hour;
   }
   console.log(interval);
-  res.status(200).json({start: start_hour, end: end_hour, time_int: interval});
+  res.status(200).json({start: edit_start_hour, end: edit_end_hour, time_int: edit_interval});
 });
 
 router.post("/healthData", function(req, res){
