@@ -4,9 +4,9 @@ var router = express.Router();
 var Reading = require("../models/Reading");
 
 //Eventually store these in the database
-var start_hour = 06; //Use military time hours
+var start_hour = 6; //Use military time hours
 var end_hour = 22;
-var interval = 05; //In minutes
+var interval = 5; //In minutes
 
 router.post("/timeReq", function(req, res){
   //let today = new Date();
@@ -17,14 +17,13 @@ router.post("/timeReq", function(req, res){
   if(start_hour < 10){
     edit_start_hour = "0"+start_hour;
   }
-  
   if(interval < 10){
     edit_interval = "0"+interval;
   }
   if(end_hour < 10){
     edit_end_hour = "0"+end_hour;
   }
-  console.log(interval);
+  console.log(edit_interval);
   res.status(200).json({start: edit_start_hour, end: edit_end_hour, time_int: edit_interval});
 });
 
