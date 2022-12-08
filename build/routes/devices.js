@@ -1,5 +1,5 @@
 var express = require('express');
-//const { rawListeners } = require('../models/Reading');
+const { rawListeners } = require('../models/Reading');
 var router = express.Router();
 var Reading = require("../models/Reading");
 var Patient = require("../models/Patient");
