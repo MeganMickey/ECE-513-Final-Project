@@ -18,9 +18,12 @@
     "jwt-simple": "^0.5.6",
     "mongodb": "^4.12.1",
     "mongoose": "^6.7.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "@cubejs-client/core": "^0.31.0",
+    "chart.js": "^4.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "parcel": "^2.6.2"
   }
 }

@@ -112,6 +112,8 @@ function registerFailure(jqXHR, textStatus, errorThrown) {
     else $('#rxData').html(JSON.stringify(jqXHR, null, 2));
 }
 
+
+
 $(function () {
     $('#sign-up-button').on("click", signUp);
 });
