@@ -95,9 +95,9 @@ new Chart($("#graph"), {
     }
     });
 }
-
+/*
 document.addEventListener("DOMContentLoaded", ()=>{
     buildChart();
 });
-
+*/
 module.exports = router;
