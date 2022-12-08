@@ -67,11 +67,11 @@ function signUp() {
 
 
 
-
-    //--------------------------------------------------------------------------------
+   //--------------------------------------------------------------------------------
     // Create Ajax Call if verification is passed.
     //--------------------------------------------------------------------------------
 
+    
     let txdata = {
         name: $('#name').val(),
         email: $('#email').val(),
@@ -80,10 +80,8 @@ function signUp() {
         passwordConfirm: $("#passwordConfirm").val()
     };
 
-    window.alert('Ajex call being made with:\n' + JSON.stringify(txdata));
-
     $.ajax({
-        url: routeUrl,
+        url: ajaxString + '/signUp',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(txdata),
@@ -94,16 +92,20 @@ function signUp() {
 }
 
 
-
 function registerSuccess(data, textStatus, jqXHR) {
     $('#rxData').html(JSON.stringify(data, null, 2));
     if (data.success) {
-        // after 1 second, move to "login.html"
+
+        // Notify user that the account has been created, redirect to login page.
+        test = JSON.parse(JSON.stringify(data));
+        message = test.message;
+        window.alert(message + "\nNow redirecting to Login.");
         setTimeout(function () {
             window.location = "login.html";
         }, 100);
     }
 }
+
 
 function registerFailure(jqXHR, textStatus, errorThrown) {
     if (jqXHR.status == 404) {
