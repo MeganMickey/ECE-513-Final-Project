@@ -9,7 +9,7 @@ const patientSchema = new Schema({
         required: true
     },
     // Username storage.
-    username: {
+    email: {
         type: String,
         required: true
     },

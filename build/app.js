@@ -26,7 +26,7 @@ var readingsRouter = require('./routes/readings');
 const mongoose = require("mongoose");
 
 // Set up URL for the database.
-const mongoDB = "mongodb://127.0.0.1/ece-513";
+const mongoDB = "mongodb://127.0.0.1/webdevelopment";
 
 // Initiate the connection.
 mongoose.connect(mongoDB, {

@@ -9,11 +9,9 @@ const physicianSchema = new Schema({
         required: true
     },
     // Username storage
-    username: {
+    email: {
         type: String,
-        required: true,
-        min: 1,
-        max: 1
+        required: true
     },
     // Password storage.
     passwordHash: {

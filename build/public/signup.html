@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="stylesheets/signup_style.css" />
 
+
+
+    <!-- Importing Libraries-->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!--Attempting to implement Nav Bar -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="javascripts/signup.js"></script>
 
     <title>Heart Rate Monitor Application</title>
 </head>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-
-<!--Attempting to implement Nav Bar -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -43,7 +43,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="Login.html">Login</a>
+                    <a href="login.html">Login</a>
                 </li>
             </ul>
         </div>
@@ -54,7 +54,7 @@
                         style="font-family: Georgia, 'Times New Roman', Times, serif;; padding-left: 104px; color: white; font-size: 41px; margin-bottom: 25px;">
                         Account Registration</h1><br>
                 </div>
-                <form id="register-form">
+                <form id="register-form" onSubmit="return false;">
                     <div id="register-form-content">
                         <div id="form-item">
                             <label for="name">Full Name</label>
@@ -70,15 +70,15 @@
                         </div>
                         <div id="form-item">
                             <label for="password">Enter Password</label>
-                            <input type="password" id="password">
+                            <input type="text" id="password">
                         </div>
                         <div id="form-item">
                             <label for="password-check">Re-Enter Password</label>
-                            <input type="password" id="passwordConfirm">
+                            <input type="text" id="passwordConfirm">
                         </div>
                         <div id="form-item">
                             <div id="pick-one">
-                                <input type="radio" id="yesPatient" name="twoChoice" value="patient" checked>
+                                <input type="radio" id="yesPatient" name="twoChoice" value="patient">
                                 <label for="yesPatient" id="radioLabel">Patient</label>
                                 <input type="radio" id="yesPhysician" name="twoChoice" value="physician">
                                 <label for="yesPhysician" id="radioLabel">Physician</label>
@@ -90,13 +90,11 @@
                 </form>
             </div>
         </div>
-</body>
+        <div style="display:inline-block; width:45vw; height: 60vh; margin: 2vh 20vw; ">
+            <textarea id="rxData" style="width:100%; height:100%"></textarea>
+        </div>
 </body>
 
-</html>
-</div>
-</body>
-</body>
 
 </html>
 <!--

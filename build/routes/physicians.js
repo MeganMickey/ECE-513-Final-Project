@@ -5,7 +5,7 @@ let router = express.Router();
 
 
 // Including libraries and files.
-var Physician = require("../models/Physician");
+var Physician = require("../models/physician");
 const jwt = require("jwt-simple");
 const bcrypt = require("bcryptjs");
 const fs = require('fs');
