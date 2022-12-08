@@ -1,94 +1,79 @@
 // Javascript that will run whenever the signup page is loaded.
 
-var submitElement = document.getElementById('sign-up-button');
+function signUp() {
 
-submitElement.addEventListener("click", function () {
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let passwordConfirm = document.getElementById("passwordConfirm").value;
-    let error = document.getElementById("formErrors");
-
+    let name = $("#name").val();
+    let email = $("#email").val();
+    let password = $("#password").val();
+    let passwordConfirm = $("#passwordConfirm").val();
+    let error = $("#formErrors");
     let errorString = "";
 
 
-    document.getElementById("fullName").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("fullName").style.borderWidth = "1px";
-    document.getElementById("email").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("email").style.borderWidth = "1px";
-    document.getElementById("password").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("password").style.borderWidth = "1px";
-    document.getElementById("passwordConfirm").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("passwordConfirm").style.borderWidth = "1px";
+    $("#fullName").css({"borderColor": "rgb(170, 170, 170)","borderWidth": "1px"});
+    $("#email").css({"borderColor": "rgb(170, 170, 170)","borderWidth": "1px"});
+    $("#password").css({"borderColor": "rgb(170, 170, 170)","borderWidth": "1px"});
+    $("#passwordConfirm").css({"borderColor": "rgb(170, 170, 170)","borderWidth": "1px"});
 
 
-    error.style.display = "none";
+    error.css("display", "none");
 
 
 
     if (name.length < 1) {
         errorString += "<li>Missing full name.</li>";
-        document.getElementById("name").style.borderWidth = "2px";
-        document.getElementById("name").style.borderColor = "red";
-
+        $("#name").css({"borderWidth": "2px","borderColor":"red"});
     }
 
     email_re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
     if (!email_re.test(email)) {
         //window.alert("Invalid or missing email address.");
         errorString += "<li>Invalid or missing email address.</li>"
-        document.getElementById("email").style.borderWidth = "2px";
-        document.getElementById("email").style.borderColor = "red";
+        $("#email").css({"borderWidth": "2px", "borderColor":"red"});
     }
 
 
     if (password.length < 10 || password.length > 20) {
-
         errorString += "<li>Password must be between 10 and 20 characters.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        $("#password").css({"borderWidth": "2px", "borderColor":"red"});
     }
 
 
     if (!/[a-z]/.test(password)) {
         errorString += "<li>Password must contain at least one lowercase character.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        $("#password").css({"borderWidth": "2px", "borderColor":"red"});
     }
 
     if (!/[A-Z]/.test(password)) {
         errorString += "<li>Password must contain at least one uppercase character.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        $("#password").css({"borderWidth": "2px", "borderColor":"red"});
     }
 
     if (!/[0-9]/.test(password)) {
         errorString += "<li>Password must contain at least one digit.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        $("#password").css({"borderWidth": "2px", "borderColor":"red"});
     }
 
 
     if (password != passwordConfirm) {
         errorString += "<li>Password and confirmation password don't match.</li>"
-        document.getElementById("password").style.borderColor = "red";
-        document.getElementById("passwordConfirm").style.borderColor = "red";
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("passwordConfirm").style.borderWidth = "2px";
+        $("#passwordConfirm").css({"borderWidth": "2px", "borderColor":"red"});
     }
 
-    error.innerHTML = errorString;
     if (errorString.length > 1) {
-        error.style.display = "block";
+        error.css("display", "block");
     }
+    console.log("error string:")
+    console.log(errorString.length);
     
-    if(errorString == ""){
+    if(errorString.length == 0){
+        console.log("No errors! Sending to server!")
         let txdata = {
-            name: $('#name').val(),
-            username: $('#email').val(),
-            password: $('#password').val()
+            name: name,
+            username: email,
+            password: password
         }
+        console.log(txdata);
         const btns = document.querySelectorAll('input[name="twoChoice"]');
         let selected;
         for(const btn of btns){
@@ -97,13 +82,15 @@ submitElement.addEventListener("click", function () {
                 break;
             }
         }
+        console.log(selected);
         if(selected == "patient"){
+            console.log("sending ajax request");
             $.ajax({
-                url: '/patients/signUp',
-                method: 'POST',
-                contentType: 'application/json',
+                url: "/patients/signUp",
+                method: "POST",
+                contentType: "application/json",
                 data: JSON.stringify(txdata),
-                dataType: 'json'
+                dataType: "json"
             })
             .done(function (data, textStatus, jqXHR) {
                 $('#formErrors').html(JSON.stringify(data, null, 2));
@@ -122,5 +109,12 @@ submitElement.addEventListener("click", function () {
             });
         }
     }
+    else{
+        error.html("<ul>"+errorString+"</ul>").css("color","white");
+    }
 
-});
+}
+
+$(function () {
+    $("#sign-up-button").click(signUp);
+})
