@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="stylesheets/patient_style.css" />
-    <script src="javascripts/login.js"></script>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/patient.js"></script>
     <title>Heart Rate Monitor Application</title>
 </head>
 <body id = "banner">
@@ -23,17 +23,33 @@
                 <li><a href="navigation.html">Log out</a></li>
             </ul>
     </div>
-
     <div>
-        <label for="average">Weekly Average:</label>
-        <input type="text" id="average" name="average" value="Patient Average" readonly><br>
+        <div id="patient-header">
+            <h1>Patient Weekly Summary</h1>
+            <p>The patient's average, maxmimum, and minimum heart rate for the past seven days is displayed below.</p>
+        </div>
 
-        <label for="average">Weekly Maximum:</label>
-        <input type="text" id="maximum" name="maximum" value="Patient Maximum" readonly><br>
+        <div id="stats">
+            <label for="average">Weekly Average:</label>
+            <input type="text" id="average" name="average" value="Patient Average" readonly><br>
 
-        <label for="average">Weekly Minimum:</label>
-        <input type="text" id="minimum" name="minimum" value="Patient Minimum" readonly>
+            <label for="maximum">Weekly Maximum:</label>
+            <input type="text" id="maximum" name="maximum" value="Patient Maximum" readonly><br>
+
+            <label for="minimum">Weekly Minimum:</label>
+            <input type="text" id="minimum" name="minimum" value="Patient Minimum" readonly>
+        </div>
     </div>
+    <div id="go-in-detail">
+        <a href="patient_detailedview.html" id="detail-button">Daily View</a>
+    </div>
+
+    <form id="go-to-detailed">
+        <label for="date-picker">Choose a Recent Date:</label>
+        <input type = "date" id="date-picker"><br>
+        <button type="submit" id="date-button">Go</button>
+    </form>
+    <div style="width: 800px;"><canvas id="graph"></canvas></div>
     
 </body>
 </html>

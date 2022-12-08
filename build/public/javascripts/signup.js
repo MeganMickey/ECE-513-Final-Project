@@ -85,6 +85,9 @@ function signUp() {
         console.log(selected);
         if(selected == "patient"){
             console.log("sending ajax request");
+            /*$.post("/patients/signUp",JSON.stringify(txdata),function(data){
+                console.log("successful post request");
+            });*/
             $.ajax({
                 url: "/patients/signUp",
                 method: "POST",
@@ -93,6 +96,7 @@ function signUp() {
                 dataType: "json"
             })
             .done(function (data, textStatus, jqXHR) {
+                console.log("send ajax request");
                 $('#formErrors').html(JSON.stringify(data, null, 2));
                 if (data.success) {
                     // after 1 second, move to "login.html"
@@ -102,10 +106,13 @@ function signUp() {
                 }
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log("failed to post");
                 if (jqXHR.status == 404) {
                     $('#formErrors').html("Server could not be reached!!!");    
                 }
-                else $('#formErrors').html(JSON.stringify(jqXHR, null, 2));
+                
+                else {error.html(JSON.stringify(jqXHR, null, 2));}
+                console.log(JSON.stringify(jqXHR, null, 2));
             });
         }
     }
