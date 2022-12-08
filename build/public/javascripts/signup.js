@@ -1,36 +1,46 @@
 // Javascript that will run whenever the signup page is loaded.
 
-// Notify console that the script is loaded.
-console.log('window.onload: javascript/signup.js');
-
-// Populating the html with jQuery library.
 var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+script.src = 'https://code.jquery.com/jquery-3.4.1.min.js';
+script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 
 
 
-
-let registerForm = document.querySelectorAll(".register-form");
-
-console.log(registerForm);
+console.log('window.onload: javascript/signup.js');
 
 
-// var arr = [].slice.call(submitElement);
-// console.log(arr);
+src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js";
 
 
-//let form = document.getElementsByClassName('register-form-content').getElementById('name');
+$(document)(function() {
+    $("div").css("border", "3px solid red");
+});
+
+var submitElement = document.getElementsByTagName('input');
 
 
-//console.log(form);
+
+// let formItems = $("div.form-item input");
+
+// console.log(formItems);
+/*console.log(submitElement);
+
+var arr = [].slice.call(submitElement);
+console.log(arr);
+*/
+
+// $form = $("#form-item");
+
+
+
+// console.log($form);
 
 
 
 /*
 submitElement.addEventListener("click", function () {
-
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
