@@ -6,9 +6,10 @@ const bcrypt = require("bcryptjs");
 
 //import {Chart} from 'chart.js/auto'
 
-router.post("/signUp", function(req,res){
-    res.status(201).send("Created!");
-})
+// Get the jwt token to use for user authenication.
+const secret = require('fs').readFileSync(__dirname + '/../keys/jwtkey').toString();
+
+
 
 function buildChart(){
 
@@ -29,9 +30,9 @@ const data = [
 
 // On AWS ec2, you can use to store the secret in a separate file. 
 // The file should be stored outside of your code directory. 
-// const fs = require('fs');
-// // For encoding/decoding JWT
-// const secret = fs.readFileSync(__dirname + '/../keys/jwtkey').toString();
+const fs = require('fs');
+// For encoding/decoding JWT
+const secret = fs.readFileSync(__dirname + '/../jwt-key').toString();
 
 
 router.post("/signUp", function (req, res) {
@@ -98,6 +99,56 @@ new Chart($("#graph"), {
     }
     });
 }
+
+
+//--------------------------------------------------
+// Register a new Pat
+//--------------------------------------------------
+router.post("/signUp", function (req, res) {
+
+    // Searching for accounts with the same email.
+    Patient.findOne({ email: req.body.email }, function (err, patient) {
+
+        // If the requrest is unauthorized, then send an error.
+        if (err) res.status(401).json({ success: false, err: err });
+        
+        // if a phsyician account already exists with the same email.
+        else if (patient) {
+            res.status(401).json({ success: false, msg: "This email already used" });
+        }
+
+        // create the accounts if no errors.
+        else {
+
+            // Create a password hash to secureley store a password.
+            const passwordHash = bcrypt.hashSync(req.body.password, 10);
+
+            // Create a new physician.
+            const newPhysician = new Patient({
+                email: req.body.email,
+                name: req.body.name,
+                passwordHash: passwordHash
+            });
+
+
+            // Save the new physician account to the database.
+            newPhysician.save(function (err, physician) {
+                if (err) {
+                    res.status(400).json({ success: false, err: err });
+                }
+                else {
+                    let msgStr = `Patient (${req.body.email}) account has been created.`;
+                    res.status(201).json({ success: true, message: msgStr });
+                    console.log(msgStr);
+                }
+            });
+        }
+    });
+});
+
+
+
+
 
 //-------------------------------------------------------------------------
 // Logging in to account.
