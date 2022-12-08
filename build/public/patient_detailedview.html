@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/patient_style.css" />
+    <script src="javascripts/login.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <title>Heart Rate Monitor Application</title>
+</head>
+<body id = "banner">
+
+    <div>
+        <div id = "navbar">
+            <a href="navigation.html" id="logo">UA HEART MONITORING</a>
+            <ul>
+                <li><a href="account.html">Account</a></li>
+                <li id="dropdown"><a href="#" id="dropdown-button">Information</a>
+                    <div id="dropdown-content">
+                        <a href="device.html">This Device</a>
+                        <a href="about_us.html">About Us</a>
+                    </div>
+                </li>
+                <li><a href="navigation.html">Log out</a></li>
+            </ul>
+    </div>
+    <div>
+        <input type="text" name="birthday" value="10/24/1984" />
+
+    <script>
+        $(function() {
+            $('input[name="birthday"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'),10)
+            }, function(start, end, label) {
+                var years = moment().diff(start, 'years');
+                alert("You are " + years + " years old!");
+            });
+        });
+    </script>
+    </div>
+</body>
+</html>
