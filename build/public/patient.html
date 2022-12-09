@@ -14,10 +14,41 @@
             <a href="navigation.html" id="logo">UA HEART MONITORING</a>
             <ul>
                 <li><a href="account.html">Account</a></li>
-                <li><a href="#">Navigation</a></li>
+                <li id="dropdown"><a href="#" id="dropdown-button">Information</a>
+                    <div id="dropdown-content">
+                        <a href="device.html">This Device</a>
+                        <a href="about_us.html">About Us</a>
+                    </div>
+                </li>
                 <li><a href="navigation.html">Log out</a></li>
             </ul>
     </div>
+    <div>
+        <div id="patient-header">
+            <h1>Patient Weekly Summary</h1>
+            <p>The patient's average, maxmimum, and minimum heart rate for the past seven days is displayed below.</p>
+        </div>
 
+        <div id="stats">
+            <label for="average">Weekly Average:</label>
+            <input type="text" id="average" name="average" value="Patient Average" readonly><br>
+
+            <label for="maximum">Weekly Maximum:</label>
+            <input type="text" id="maximum" name="maximum" value="Patient Maximum" readonly><br>
+
+            <label for="minimum">Weekly Minimum:</label>
+            <input type="text" id="minimum" name="minimum" value="Patient Minimum" readonly>
+        </div>
+    </div>
+    <div id="go-in-detail">
+        <a href="patient_detailedview.html" id="detail-button">Daily View</a>
+    </div>
+
+    <form id="go-to-detailed">
+        <label for="date-picker">Choose a Recent Date:</label>
+        <input type = "date" id="date-picker"><br>
+        <button type="submit" id="date-button">Go</button>
+    </form>
+    
 </body>
 </html>
