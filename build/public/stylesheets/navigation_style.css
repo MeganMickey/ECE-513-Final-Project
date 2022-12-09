@@ -1,28 +1,5 @@
-/*Here is the css for the application
 
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-  }
-  
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-  }
-*/
-
+/*The css that affects these beginning ID's create the background using an image, a navigation bar with sections, and a logo*/
 #banner {
   width: 100%;
   height: 100vh;
@@ -68,6 +45,7 @@
   font-size: 26px;
 }
 
+/*The navigation menu's sections have a colored underline, but does not appear until the mouse hovers above it.*/
 #navbar ul li::after {
   content: '';
   height: 3px;
@@ -79,10 +57,12 @@
   transition: 0.5s;
 }
 
+/*When the mouse hovers over the section, the underline is shown.*/
 #navbar ul li:hover:after {
   width: 100%;
 }
 
+/*The dropdown menu*/
 #dropdown-content {
   top: 41px;
   text-align: center;
