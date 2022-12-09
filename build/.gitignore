@@ -6,3 +6,5 @@ build/.vscode/settings.json
 build/package-lock.json
 
 .env
+
+TODO.md

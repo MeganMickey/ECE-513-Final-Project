@@ -162,10 +162,11 @@ router.post("/logIn", function (req, res) {
     Patient.findOne({ email: req.body.email }, function (err, patient) {
         if (err) {
             res.status(400).send(err);
+
         }
         else if (!patient) {
             // Username not in the database
-            res.status(401).json({ error: "Login failure!!" });
+            res.status(401).json({ error: "Email is not associated with a patient account." });
         }
         else {
             if (bcrypt.compareSync(req.body.password, patient.passwordHash)) {
@@ -176,7 +177,7 @@ router.post("/logIn", function (req, res) {
                     console.log("User's LastAccess has been updated.");
                 });
                 // Send back a token that contains the user's username
-                res.status(201).json({ success: true, token: token, msg: "Login success" });
+                res.status(201).json({ success: true, token: token, message: "Login success!!" });
             }
             else {
                 res.status(401).json({ success: false, msg: "Email or password invalid." });
