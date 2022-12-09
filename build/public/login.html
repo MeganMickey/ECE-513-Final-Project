@@ -17,11 +17,11 @@
 
 
 
-<body class="banner">
+<body id="banner">
 
     <div>
-        <div class="navbar">
-            <a href="navigation.html" class="logo">UA HEART MONITORING</a>
+        <div id="navbar">
+            <a href="navigation.html" id="logo">UA HEART MONITORING</a>
             <ul>
                 <li><a href="navigation.html">Home</a></li>
                 <li><a href="#">Navigation</a></li>
@@ -30,33 +30,33 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="login">
-            <div class="login-header">
+    <div id="container">
+        <div id="login">
+            <div id="login-header">
                 <h1
                     style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-left: 64px; color: white; font-size: 42px; margin-bottom: 25px;">
                     Welcome to Our Application</h1>
                 <p>Please login to have access to heart rate monitoring.</p>
             </div>
-            <form class="login-form" onSubmit="return false;">
-                <div class="login-form-content">
-                    <div class="form-item">
+            <form id="login-form" onSubmit="return false;">
+                <div id="login-form-content">
+                    <div id="form-item">
                         <label for="email">Enter Email</label>
                         <input type="text" id="email">
                     </div>
-                    <div class="form-item">
+                    <div id="form-item">
                         <label for="password">Enter Password</label>
                         <input type="password" id="password">
                     </div>
-                    <div class="form-item">
-                        <div class="checkbox">
+                    <div id="form-item">
+                        <div id="checkbox">
                             <input type="checkbox" id="rememberMeCheckbox">
-                            <label for="rememberMeCheckbox" class="checkboxLabel">Remember Me</label>
+                            <label for="rememberMeCheckbox" id="checkboxLabel">Remember Me</label>
 
                             <input type="radio" id="yesPatient" name="twoChoice" value="patient" checked>
-                            <label for="yesPatient" class="radioLabel">Patient</label><br>
+                            <label for="yesPatient" id="radioLabel">Patient</label><br>
                             <input type="radio" id="yesPhysician" name="twoChoice" value="physician">
-                            <label for="yesPhysician" class="radioLabel">Physician</label><br>
+                            <label for="yesPhysician" id="radioLabel">Physician</label><br>
                         </div>
                     </div>
                     <button type="submit" id="sign-in-button">Sign In</button>
