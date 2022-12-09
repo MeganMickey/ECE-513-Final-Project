@@ -1,0 +1,52 @@
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../additional files/physician_device.css" />
+    <script src="javascripts/login.js"></script>
+
+    <title>Heart Monitoring Device Information</title>
+</head>
+<body  id = "banner">
+
+    <div>
+        <div id = "navbar">
+            <a href="navigation.html" id="logo">UA HEART MONITORING</a>
+            <ul>
+                <li><a href="../account.html">Account</a>
+                </li><li id="dropdown"><a href="#" id="dropdown-button">Information</a>
+                    <div id="dropdown-content">
+                        <a href="./physician_device.html">This Device</a>
+                        <a href="./physician_about_us.html">About Us</a>
+                    </div>
+                </li>
+                <li><a href="../physician.html">Return</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id = "container">
+        <div id = "device">
+            <div id = "device-header">
+                <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-left: 200px; color: white; font-size: 44px; margin-bottom: 32px;">Device and Project Information</h1>
+                <p>&emsp; For this project, an Argon Wi-Fi Development Board is used in combination with a AITrip Heart Rate Sensor in order to measure and record information about a user's health. 
+                   The recorded information is sent to the website to be stored and displayed back to the user.
+                    The website was created using HTML, CSS, and Javascript, while the hardware requires C++ code to function. The user is able to sign up with a device ID, login, and receive a 
+                   detailed view of recent heart rate measurements with a graph. A physican is able to change the frequency of their patient's heart rate testing.
+                </p>
+            </div>
+
+            <div id = "rows">
+                <div id = "column">
+                    <img src="../images/TallArgon.png" alt = "Argon" style = "width:350%">                
+                </div>
+                <div id = "column">
+                    <img src="../images/HeartMonitor.png" alt = "Sensor" style = "width:530%; transform:translateX(250px);">                
+                </div>
+                <div id = "column">
+                    <img src="../images/Breadboard_Setup.jpg" alt = "Setup" style = "width:575%; transform:translateX(510px);">                
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

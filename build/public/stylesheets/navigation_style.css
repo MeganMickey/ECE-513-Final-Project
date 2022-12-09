@@ -84,6 +84,7 @@
   display: block;
 }
 
+/*When the mouse hovers over the contents of the dropdown menu, the background color changes.*/
 #dropdown-content a:hover {
   background-color: #FF8C00;
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="stylesheets/patient_style.css" />
+    <link rel="stylesheet" href="stylesheets/patient_detailedview.css" />
     <script src="javascripts/login.js"></script>
 
 
@@ -17,8 +17,8 @@
                 <li><a href="account.html">Account</a></li>
                 <li id="dropdown"><a href="#" id="dropdown-button">Information</a>
                     <div id="dropdown-content">
-                        <a href="device.html">This Device</a>
-                        <a href="about_us.html">About Us</a>
+                        <a href="./additional files/patient_device.html">This Device</a>
+                        <a href="./additional files/patient_about_us.html">About Us</a>
                     </div>
                 </li>
                 <li><a href="navigation.html">Log out</a></li>
@@ -26,20 +26,33 @@
         </div> 
     </div>
 
-    <div>
+    <div id="container">
+        <div id="patientD">
+            <div id="patientD-header">
+                <h1
+                    style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center; margin-right: 15px; margin-left: 15px; color: white; font-size: 36px; margin-bottom: 25px;">
+                    Detailed Patient Health Information</h1>
+                <p>The patient's results of the chosen date are shown on the graph to the right. The patient has the option to
+                    choose a different date, modify the time range of the graph, and change the frequency of measurements.</p>
+            </div>
 
-        <form>
-            <label for="date-picker">Date Chosen by Patient:</label>
-            <input type = "date" id="date-picker"><br>
-
-            <label for="day-range1">Time of Day Range:</label>
-            <input type = "date" id="day-range1">
-            <label for="day-range2">To</label>
-            <input type = "date" id="day-range2"><br>
-
-            <label for="frequency">Frequency of measurements(Minutes):</label>
-            <input type = "text" id="frequency"><br>
-        </form>
+            <form id="patientD-header-content">
+                <label for="date-picker">Date Chosen by Patient:</label>
+                <input type = "date" id="date-picker"><br><br><br>
+    
+                <label for="day-range1">From:</label>
+                <input type = "time" id="day-range1">
+                <label for="day-range2">To:</label>
+                <input type = "time" id="day-range2"><br><br>
+    
+                <label for="frequency">Frequency of Measurements in Minutes:</label>
+                <input type = "text" id="frequency"><br><br>
+ 
+            </form>
+            
+        </div>
     </div>
+
+
 </body>
 </html>

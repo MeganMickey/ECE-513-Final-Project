@@ -141,6 +141,7 @@ input[type = 'text'], input[type = 'password'] {
   font-size: 18px;
   border-radius: 100px;
 }
+
 #checkbox {
   display: flex;
   align-items: center;
