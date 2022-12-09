@@ -18,6 +18,7 @@ This system is
 
 ## Links
 This is the link to our AWS server: http://ec2-18-237-50-20.us-west-2.compute.amazonaws.com:3000/
+
 This is the link to our demo video: 
 
 ## Login Credentials
