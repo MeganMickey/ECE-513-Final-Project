@@ -262,7 +262,7 @@ void loop()
 
       Serial.println("Entering constant data gathering");
       //Continuously taking samples from MAX30102.  Heart rate and SpO2 are calculated every 1 second
-      for (int i=0; i<15; i++)   //Done to give time to settle down.
+      for (int i=0; i<10; i++)   //Done to give time to settle down.
       {
         //dumping the first 25 sets of samples in the memory and shift the last 75 sets of samples to the top
         for (byte i = 25; i < 100; i++)
@@ -328,7 +328,7 @@ void loop()
         Serial.print("\n");
         Serial.print(numStoredReadings);
         for (int i = 0; i<5; i++){
-          digitalWrite(greenPin, 50);
+          digitalWrite(greenPin, 200);
           digitalWrite(redPin, 255);
           delay(500);
           digitalWrite(greenPin, 0);
