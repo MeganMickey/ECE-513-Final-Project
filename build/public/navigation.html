@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="stylesheets/navigation_style.css">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-        <script src="javascripts/navigation.js"></script>
-        <title>Heart Rate Monitor Application</title>
-    </head>
-
-
-
-
-    <body id="banner">
-
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/navigation_style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="javascripts/navigation.js"></script>
+    <!--The homepage, called "navigation.html, gives the user options to learn more about the device, project, the creators,
+        or login to the website."-->
+    <title>Heart Rate Monitor Application</title>
+</head>
+<body id = "banner">
+    <!--This section creates the navigation bar at the top of the website, the logo, and the dropdown menu.-->
+    <div>
+        <div id = "navbar">
+            <a href="navigation.html" id="logo">UA HEART MONITORING</a>
+            <ul>
+                <li><a href="navigation.html">Home</a></li>
+                <li id="dropdown"><a href="#" id="dropdown-button">Information</a>
+                    <div id="dropdown-content">
+                        <a href="device.html">This Device</a>
+                        <a href="about_us.html">About Us</a>
+                    </div>
+                </li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--This section is meant to draw users in, to have them want to try using what the website offers. A login from the app 
+        button is available below.-->
+    <div id="content">
+        <h1>A Healthy Body Starts From the Heart</h1>
+        <p>To learn more about how our technologies can help monitor your heart rate, use the navigation tab above.<br>
+            To check dates of upcoming health readings, use one of the login buttons located on this site.
+        </p>
         <div>
-            <div id="navbar">
-                <a href="navigation.html" id="logo">UA HEART MONITORING</a>
-                <ul>
-                    <li><a href="navigation.html">Home</a></li>
-                    <li><a href="#">Navigation</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </div>
+            <button type="button" id="app-button">
+                <span></span>App Login</button>
         </div>
-
-        <div id="content">
-            <h1>A Healthy Body Starts From the Heart</h1>
-            <p>To learn more about how our technologies can help monitor your heart rate, use the navigation tab above.<br>
-                To check dates of upcoming health readings, use one of the login buttons located on this site.
-            </p>
-            <div>
-                <button type="button" id="app-button">
-                    <span></span>App Login</button>
-            </div>
-        </div>
-    </body>
+    </div>
+</body>
 </html>

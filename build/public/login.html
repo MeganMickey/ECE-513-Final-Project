@@ -4,32 +4,36 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="stylesheets/login_style.css" />
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
     <script src="javascripts/login.js"></script>
-
+    <!--The login page, called login.html, allows the user to login to the website with their email and password. They can choose 
+        whether their login information is saved for next session, and they choose whether they are the patient or physician.-->
     <title>Heart Monitoring Login</title>
 </head>
 
 
 
 
-
 <body id="banner">
-
+<!--This section creates the navigation bar at the top of the website, the logo, and the dropdown menu. The user can signup from the top.-->
     <div>
         <div id="navbar">
             <a href="navigation.html" id="logo">UA HEART MONITORING</a>
             <ul>
                 <li><a href="navigation.html">Home</a></li>
-                <li><a href="#">Navigation</a></li>
+                <li id="dropdown"><a href="#" id="dropdown-button">Information</a>
+                    <div id="dropdown-content">
+                        <a href="device.html">This Device</a>
+                        <a href="about_us.html">About Us</a>
+                    </div>
+                </li>
                 <li><a href="signup.html">Sign Up</a></li>
             </ul>
         </div>
     </div>
 
+<!--This section creates the both the blue container surrounding the login, and the form with inputs(email, text, radio choice, checkbox, button).-->
     <div id="container">
         <div id="login">
             <div id="login-header">
@@ -67,5 +71,4 @@
     </div>
 
 </body>
-
 </html>

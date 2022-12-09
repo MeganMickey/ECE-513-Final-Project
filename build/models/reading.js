@@ -24,13 +24,5 @@ const readingSchema = new Schema({
 });
 
 
-// Then, when you make your query, you can populate references like this:
-
-// Post.findOne({_id: 123})
-// .populate('postedBy')
-// .exec(function(err, post) {
-//     // do stuff with post
-// });
-
 
 module.exports = mongoose.model("Reading", readingSchema);
