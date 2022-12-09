@@ -1,0 +1,8 @@
+express-project/node_modules/
+
+build/node_modules/
+.vscode/settings.json
+build/.vscode/settings.json
+build/package-lock.json
+
+.env

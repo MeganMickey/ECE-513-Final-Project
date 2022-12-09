@@ -6,45 +6,33 @@ var logger = require('morgan');
 const bodyParser = require('body-parser');     // Parses JSON in body
 const jwt = require('jwt-simple');
 
+
+
+// Including Database
+var database = require('./db');
+
 // Including the routers for use in the app.
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var physiciansRouter = require('./routes/physicians');
 var patientsRouter = require('./routes/patients');
 var readingsRouter = require('./routes/readings');
+var devicesRouter = require('./routes/devices');
 
 
 
 
 
 
-// // // // // // // // // // //
-/* Set up mongoose connection */
-// // // // // // // // // // //
-
-// Include mongoose middleware
-const mongoose = require("mongoose");
-
-// Set up URL for the database.
-const mongoDB = "mongodb://127.0.0.1/ece-513";
-
-// Initiate the connection.
-mongoose.connect(mongoDB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-
-// Set db to the connection.
-const db = mongoose.connection;
-
-// Create an error if the database fails to set up.
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
-// // // // // // // // // // //
-/* Finish mongoose connection */
-// // // // // // // // // // //
+// //------------------------------------------
+// // Set up JWT Authentication
+// //------------------------------------------
 
 
+
+// //------------------------------------------
+// // Finish JWT Authentication
+// //------------------------------------------
 
 
 
@@ -87,7 +75,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/physicians', physiciansRouter);
 app.use('/patients', patientsRouter);
-app.use('/readings', readingsRouter)
+app.use('/readings', readingsRouter);
+app.use('/devices', devicesRouter);
 
 
 // catch 404 and forward to error handler
@@ -105,5 +94,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

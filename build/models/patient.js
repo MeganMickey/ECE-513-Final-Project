@@ -9,7 +9,7 @@ const patientSchema = new Schema({
         required: true
     },
     // Username storage.
-    username: {
+    email: {
         type: String,
         required: true
     },
@@ -20,17 +20,28 @@ const patientSchema = new Schema({
     },
     // Including an array of readings for the patient.
     readings: {
-        type:
-            [{
+        type: [
+            {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Reading'
-            }]
+            }
+        ]
+    },
+    //When was the last access?
+    lastAcces: {
+        type: Date
     },
     // The patient has a physician.
     physician: {
 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Physician'
+
+    },
+    device: {
+
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Device'
 
     }
 

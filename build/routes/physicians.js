@@ -5,7 +5,7 @@ let router = express.Router();
 
 
 // Including libraries and files.
-var Physician = require("../models/Physician");
+var Physician = require("../models/physician");
 const jwt = require("jwt-simple");
 const bcrypt = require("bcryptjs");
 const fs = require('fs');
@@ -16,9 +16,18 @@ const fs = require('fs');
 const secret = fs.readFileSync(__dirname + '/../keys/jwtkey').toString();
 
 
-// // // // // // // // // // /
-/*  Register a new Physician */
-// // // // // // // // // // /
+
+
+
+//--------------------------------------------------
+//--------------------------------------------------
+// Begin Routes
+//--------------------------------------------------
+//--------------------------------------------------
+
+//--------------------------------------------------
+// Register a new Physician
+//--------------------------------------------------
 router.post("/signUp", function (req, res) {
 
     // Searching for accounts with the same email.
@@ -41,6 +50,7 @@ router.post("/signUp", function (req, res) {
             // Create a new physician.
             const newPhysician = new Physician({
                 email: req.body.email,
+                name: req.body.name,
                 passwordHash: passwordHash
             });
 
@@ -84,7 +94,7 @@ router.post("/logIn", function (req, res) {
                 //update user's last access time
                 physician.lastAccess = new Date();
                 physician.save((err, physician) => {
-                    console.log("User's LastAccess has been update.");
+                    console.log("User's LastAccess has been updated.");
                 });
                 // Send back a token that contains the user's username
                 res.status(201).json({ success: true, token: token, msg: "Login success" });

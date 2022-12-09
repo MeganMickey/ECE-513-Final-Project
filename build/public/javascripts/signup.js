@@ -1,110 +1,125 @@
-// Javascript that will run whenever the signup page is loaded.
+function signUp() {
 
-console.log('window.onload: javascript/signup.js');
-
-
-
-
-
-var submitElement = document.getElementsByTagName('input');
+    //--------------------------------------------------------------------------------
+    // Checking if patient or physician.
+    //--------------------------------------------------------------------------------
 
 
-
-let formItems = $("div.form-item input");
-
-console.log(formItems);
-/*console.log(submitElement);
-
-var arr = [].slice.call(submitElement);
-console.log(arr);
-*/
-
-let form = document.getElementsByClassName('register-form-content').getElementById('name');
-
-
-console.log(form);
-
-
-
-/*
-submitElement.addEventListener("click", function () {
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let passwordConfirm = document.getElementById("passwordConfirm").value;
-    let error = document.getElementById("formErrors");
-
-    let errorString = "";
-
-
-    document.getElementById("fullName").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("fullName").style.borderWidth = "1px";
-    document.getElementById("email").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("email").style.borderWidth = "1px";
-    document.getElementById("password").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("password").style.borderWidth = "1px";
-    document.getElementById("passwordConfirm").style.borderColor = "rgb(170, 170, 170)";
-    document.getElementById("passwordConfirm").style.borderWidth = "1px";
-
-
-    error.style.display = "none";
-
-
-
-    if (name.length < 1) {
-        errorString += "<li>Missing full name.</li>";
-        document.getElementById("fullName").style.borderWidth = "2px";
-        document.getElementById("fullName").style.borderColor = "red";
+    let ajaxString = "";
+    if ($("#yesPatient").is(':checked')) {
+        ajaxString = "/patients";
+    }
+    else if ($("#yesPhysician").is(':checked')) {
+        ajaxString = "/physicians";
 
     }
+    else {
+        window.alert("You must register to be a Patient or Physician");
+        return;
+    }
 
+    //--------------------------------------------------------------------------------
+    // Name Validation
+    //--------------------------------------------------------------------------------
+    if (/[0-9]/.test($('#name').val()) || $('#name').val().length == 0) {
+        window.alert("invalid name!");
+        return;
+    }
+
+
+    //--------------------------------------------------------------------------------
+    // Email Validation
+    //--------------------------------------------------------------------------------
     email_re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
-    if (!email_re.test(email)) {
-        errorString += "<li>Invalid or missing email address.</li>"
-        document.getElementById("email").style.borderWidth = "2px";
-        document.getElementById("email").style.borderColor = "red";
+    if (!email_re.test($('#email').val())) {
+        window.alert("invalid email!");
+        return;
     }
 
+    //--------------------------------------------------------------------------------
+    // Password Validation
+    //--------------------------------------------------------------------------------
 
+    let password = $('#password').val();
     if (password.length < 10 || password.length > 20) {
-        errorString += "<li>Password must be between 10 and 20 characters.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        window.alert("Password must be between 10 and 20 characters.");
+        return;
     }
-
-
     if (!/[a-z]/.test(password)) {
-        errorString += "<li>Password must contain at least one lowercase character.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        window.alert("Password must contain at least one lowercase character.");
+        return;
     }
-
-    if (!/[A-Z]/.test(password)) {
-        errorString += "<li>Password must contain at least one uppercase character.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+    if (!/[A-z]/.test(password)) {
+        window.alert("Password must contain at least one uppercase character.");
+        return;
     }
 
     if (!/[0-9]/.test(password)) {
-        errorString += "<li>Password must contain at least one digit.</li>"
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("password").style.borderColor = "red";
+        window.alert("Password must contain at least one digit.");
+        return;
+    }
+
+    let passwordConfirm = $("#password-check").val();
+    if (password === passwordConfirm) {
+        window.alert("Passwords do not match.");
+        return;
     }
 
 
-    if (password != passwordConfirm) {
-        errorString += "<li>Password and confirmation password don't match.</li>"
-        document.getElementById("password").style.borderColor = "red";
-        document.getElementById("passwordConfirm").style.borderColor = "red";
-        document.getElementById("password").style.borderWidth = "2px";
-        document.getElementById("passwordConfirm").style.borderWidth = "2px";
+
+   //--------------------------------------------------------------------------------
+    // Create Ajax Call if verification is passed.
+    //--------------------------------------------------------------------------------
+
+    
+    let txdata = {
+        name: $('#name').val(),
+        email: $('#email').val(),
+        deviceID: $("#device-id").val(),
+        password: $('#password').val(),
+        passwordConfirm: $("#passwordConfirm").val()
+    };
+
+    $.ajax({
+        url: ajaxString + '/signUp',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(txdata),
+        dataType: 'json'
+    })
+        .done(registerSuccess)
+        .fail(registerFailure);
+}
+
+
+function registerSuccess(data, textStatus, jqXHR) {
+    $('#rxData').html(JSON.stringify(data, null, 2));
+    if (data.success) {
+
+        // Notify user that the account has been created, redirect to login page.
+        message = JSON.parse(JSON.stringify(data));
+        
+        window.alert(message.message + "\nNow redirecting to Login.");
+        setTimeout(function () {
+            window.location = "login.html";
+        }, 100);
+    }
+}
+
+
+function registerFailure(jqXHR, textStatus, errorThrown) {
+    if (jqXHR.status == 404) {
+        $('#rxData').html("Server could not be reached!!!");
     }
 
-    error.innerHTML = "<ul>" + errorString + "</ul>";
-    if (errorString.length > 1) {
-        error.style.display = "block";
-    }
+    message = JSON.parse(JSON.stringify(jqXHR));
 
+    window.alert(`Error: ${message.status} \nRegistering Account was not successful.`);
+}
+
+
+
+$(function () {
+    $('#sign-up-button').on("click", signUp);
 });
-*/
+
