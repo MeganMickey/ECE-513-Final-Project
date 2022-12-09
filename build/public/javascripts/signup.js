@@ -97,9 +97,9 @@ function registerSuccess(data, textStatus, jqXHR) {
     if (data.success) {
 
         // Notify user that the account has been created, redirect to login page.
-        test = JSON.parse(JSON.stringify(data));
-        message = test.message;
-        window.alert(message + "\nNow redirecting to Login.");
+        message = JSON.parse(JSON.stringify(data));
+        
+        window.alert(message.message + "\nNow redirecting to Login.");
         setTimeout(function () {
             window.location = "login.html";
         }, 100);
@@ -111,7 +111,10 @@ function registerFailure(jqXHR, textStatus, errorThrown) {
     if (jqXHR.status == 404) {
         $('#rxData').html("Server could not be reached!!!");
     }
-    else $('#rxData').html(JSON.stringify(jqXHR, null, 2));
+
+    message = JSON.parse(JSON.stringify(jqXHR));
+
+    window.alert(`Error: ${message.status} \nRegistering Account was not successful.`);
 }
 
 

@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 //import {Chart} from 'chart.js/auto'
 
 // Get the jwt token to use for user authenication.
-const secret = require('fs').readFileSync(__dirname + '/../keys/jwtkey').toString();
+const secret = require('fs').readFileSync(__dirname + '/../jwt-key').toString();
 
 
 
@@ -102,7 +102,7 @@ new Chart($("#graph"), {
 
 
 //--------------------------------------------------
-// Register a new Pat
+// Register a new Patient
 //--------------------------------------------------
 router.post("/signUp", function (req, res) {
 
@@ -114,7 +114,7 @@ router.post("/signUp", function (req, res) {
         
         // if a phsyician account already exists with the same email.
         else if (patient) {
-            res.status(401).json({ success: false, msg: "This email already used" });
+            res.status(401).json({ success: false, msg: "This email already used for a Physician." });
         }
 
         // create the accounts if no errors.
