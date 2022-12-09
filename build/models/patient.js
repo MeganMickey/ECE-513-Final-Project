@@ -27,6 +27,10 @@ const patientSchema = new Schema({
             }
         ]
     },
+    //When was the last access?
+    lastAcces: {
+        type: Date
+    },
     // The patient has a physician.
     physician: {
 

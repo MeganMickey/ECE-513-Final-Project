@@ -1,8 +1,8 @@
 var express = require('express');
 //const { rawListeners } = require('../models/Reading');
 var router = express.Router();
-var Reading = require("../models/Reading");
-var Patient = require("../models/Patient");
+var Reading = require("../models/reading");
+var Patient = require("../models/patient");
 
 //Eventually store these in the database
 var start_hour = 6; //Use military time hours
