@@ -1,90 +1,91 @@
-function sendSigninRequest() {
-    let email = $('#email').val();
-    let password = $('#password').val();
-  
-    $.ajax({
-      url: '/users/signin',
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ email : email, password : password }),
-      dataType: 'json'
-    })
-    .done(signinSuccess)
-    .fail(signinError);
-  }
-  
-  function signInWithGoogle(email, name, id) {
-  
-    // attempt to sign in
-    $.ajax({
-      url: '/users/signin',
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ email : email, password : id }),
-      dataType: 'json'
-    })
-    // redirect to dashboard if signin was successful
-    .done(signinSuccess)
-    // register if not in database
-    .fail(function (jqXHR, textStatus, errorThrown) {
-      $.ajax({
-       url: '/users/register',
-       type: 'POST',
-       contentType: 'application/json',
-       data: JSON.stringify({email:email, fullName:name, password:id}),
-       dataType: 'json'
-      })
-      // sign in if registration worked
-      .done(
-        $.ajax({
-          url: '/users/signin',
-          type: 'POST',
-          contentType: 'application/json',
-          data: JSON.stringify({ email : email, password : id }),
-          dataType: 'json'
-        })
-        //redirect to dashboard if signin was successful
-        .done(signinSuccess)
-        //show error if sign in failed
-        .fail(function (jqXHR, textStatus, errorThrown) {
-          console.log(textStatus)
-        })
-      )
-      //show error if registration failed
-      .fail(function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus)
-      })
-    });
-  }
-  
-  function signinSuccess(data, textStatus, jqXHR) {
-    window.localStorage.setItem('authToken', data.authToken);
-    window.location = "dashboard.html";
-  }
-  
-  function signinError(jqXHR, textStatus, errorThrown) {
-    if (jqXHR.statusCode == 404) {
-      $('#ServerResponse').html("<span class='red-text text-darken-2'>Server could not be reached.</p>");
-      $('#ServerResponse').show();
+function logIn() {
+    //--------------------------------------------------------------------------------
+    // Gather Page data
+    //--------------------------------------------------------------------------------
+    let txdata = {
+        email: $('#email').val(),
+        password: $('#password').val()
+    };
+
+
+    //--------------------------------------------------------------------------------
+    // Check if the user is logging into a physician or Patient Account.
+    //--------------------------------------------------------------------------------
+    var patientChecked = $("#yesPatient").is(':checked');
+    let ajaxString = "";
+    if (patientChecked) {
+        ajaxString = "/patients";
     }
     else {
-      $('#ServerResponse').html("<span class='red-text text-darken-2'>Error: " + jqXHR.responseJSON.message + "</span>");
-      $('#ServerResponse').show();
+        ajaxString = "/physicians";
+
     }
-  }
-  
-  // Handle authentication on page load
-  $(function() {
-    if( window.localStorage.getItem('authToken')) {
-      window.location.replace('dashboard.html');
+
+    window.alert(`Running ajax call to ${ajaxString} with:\n` + JSON.stringify(txdata));
+
+    //--------------------------------------------------------------------------------
+    // Create Ajax Call if verification is passed.
+    //--------------------------------------------------------------------------------
+    $.ajax({
+        url: ajaxString + '/logIn',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(txdata),
+        dataType: 'json'
+    })
+        .done(loginSuccess)
+        .fail(loginFailure);
+}
+
+
+function loginSuccess(data, textStatus, jqXHR) {
+    $('#rxData').html(JSON.stringify(data, null, 2));
+    if (data.success) {
+
+        // Notify user that the account has been created, redirect to login page.
+        parsedData = JSON.parse(JSON.stringify(data));
+        message = parsedData.message;
+
+        window.alert(message + "\nNow redirecting to Account Page.");
+
+
+        var patientChecked = $("#yesPatient").is(':checked');
+        if (patientChecked) {
+            setTimeout(function () {
+                window.location = "patient.html";
+            }, 100);
+        }
+        else {
+            setTimeout(function () {
+                window.location = "physician.html";
+            }, 100);
+
+        }
+
     }
-    else {
-      $('#signin').click(sendSigninRequest);
-       $('#password').keypress(function(event) {
-          if( event.which === 13 ) {
-             sendSigninRequest();
-          }
-       });
+}
+
+
+function loginFailure(jqXHR, textStatus, errorThrown) {
+
+
+
+    switch (jqXHR.status) {
+        case 401:
+            window.alert("Error 401: Email or Password may be incorrect.");
+            window.location = 'login.html'
+            break;
+        default:
+            window.alert(`Error ${jqXHR.status}. Reloading Page.`);
+            window.location = 'login.html'
     }
-  });
-  
+
+    window.alert(`Error: ${jqXHR.status}`);
+
+
+}
+
+$(function () {
+    $('#sign-in-button').on("click", logIn);
+});
+

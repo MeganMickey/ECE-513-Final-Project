@@ -9,16 +9,18 @@ const physicianSchema = new Schema({
         required: true
     },
     // Username storage
-    username: {
+    email: {
         type: String,
-        required: true,
-        min: 1,
-        max: 1
+        required: true
     },
     // Password storage.
     passwordHash: {
         type: String,
         required: true
+    },
+    //When was the last access?
+    lastAcces: {
+        type: Date
     },
     // The Physician stores an array of patients
     patients: {
