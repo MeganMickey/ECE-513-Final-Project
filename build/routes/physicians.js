@@ -45,8 +45,10 @@ router.post("/signUp", function (req, res) {
         else {
 
             // Create a password hash to secureley store a password.
-            const passwordHash = bcrypt.hashSync(req.body.password, 10);
-
+            const salt = require('fs').readFileSync(__dirname + '/../hashSalt').toString();
+            saltedPass = req.body.password + salt;
+            const passwordHash = bcrypt.hashSync(saltedPass, 10);
+            
             // Create a new physician.
             const newPhysician = new Physician({
                 email: req.body.email,
@@ -89,7 +91,9 @@ router.post("/logIn", function (req, res) {
             res.status(401).json({ error: "Login failure!!" });
         }
         else {
-            if (bcrypt.compareSync(req.body.password, physician.passwordHash)) {
+            const salt = require('fs').readFileSync(__dirname + '/../hashSalt').toString();
+            saltedPass = req.body.password + salt;
+            if (bcrypt.compareSync(saltedPass, physician.passwordHash)) {
                 const token = jwt.encode({ email: physician.email, role: "physician"}, secret);
                 //update user's last access time
                 physician.lastAccess = new Date();

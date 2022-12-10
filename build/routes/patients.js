@@ -13,6 +13,8 @@ const secret = require('fs').readFileSync(__dirname + '/../jwt-key').toString();
 
 
 
+
+
 function buildChart() {
 
     const data = [
@@ -53,7 +55,11 @@ function buildChart() {
             // Create the account
             else {
                 // 
-                const passwordHash = bcrypt.hashSync(req.body.password, 10);
+
+
+                const salt = require('fs').readFileSync(__dirname + '/../hashSalt').toString();
+                saltedPass = req.body.password + salt;
+                const passwordHash = bcrypt.hashSync(saltedPass, 10);
                 const newPatient = new Patient({
                     name: req.body.name,
                     email: req.body.email,
@@ -123,7 +129,11 @@ router.post("/signUp", function (req, res) {
         else {
 
             // Create a password hash to secureley store a password.
-            const passwordHash = bcrypt.hashSync(req.body.password, 10);
+
+
+            const salt = require('fs').readFileSync(__dirname + '/../hashSalt').toString();
+            saltedPass = req.body.password + salt;
+            const passwordHash = bcrypt.hashSync(saltedPass, 10);
 
             // Create a new physician.
             const newPhysician = new Patient({
@@ -171,7 +181,9 @@ router.post("/logIn", function (req, res) {
             res.status(401).json({ error: "Email is not associated with a patient account." });
         }
         else {
-            if (bcrypt.compareSync(req.body.password, patient.passwordHash)) {
+            const salt = require('fs').readFileSync(__dirname + '/../hashSalt').toString();
+            saltedPass = req.body.password + salt;
+            if (bcrypt.compareSync(saltedPass, patient.passwordHash)) {
                 const token = jwt.encode({ email: patient.email, role: "patient" }, secret);
                 //update user's last access time
                 patient.lastAccess = new Date();
@@ -233,7 +245,7 @@ router.post("/updateDevice", function (req, res) {
 
     console.log(req.body.name);
     console.log(req.body.deviceId);
-    Patient.findOneAndUpdate({ name: req.body.name }, {deviceId: req.body.deviceId}, function (err, doc) {
+    Patient.findOneAndUpdate({ name: req.body.name }, { deviceId: req.body.deviceId }, function (err, doc) {
         if (err) {
             let msgStr = `Something wrong....`;
             res.status(201).json({ message: msgStr, err: err });
