@@ -4,9 +4,9 @@ var router = express.Router();
 var Reading = require("../models/reading");
 var Patient = require("../models/patient");
 
-//Eventually store these in the database
+//Eventually store these in the database. Used for testing
 var start_hour = 6; //Use military time hours
-var end_hour = 22;
+var end_hour = 24;
 var interval = 5; //In minutes
 
 router.post("/timeReq", function(req, res){
