@@ -45,7 +45,7 @@ function loginSuccess(data, textStatus, jqXHR) {
     // Notify user that the account has been created, redirect to login page.
     //parsedData = JSON.parse(JSON.stringify(data)); // Redundant Line
         
-    window.alert(data.message);
+    //window.alert(data.message);
 
     // Storing User's token for storage.
     localStorage.setItem('token', data.token);

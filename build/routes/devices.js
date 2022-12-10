@@ -28,7 +28,7 @@ router.post("/timeReq", function(req, res){
 });
 
 router.post("/healthData", function(req, res){
-  console.log(req.body.json);
+  console.log(req.body.coreid);
   const newReading = new Reading({
     time: req.body.json.rdtm,
     heartRate: req.body.json.hr,

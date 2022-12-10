@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="stylesheets/physician_style.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="javascripts/patient.js"></script>
+    <script src="javascripts/physician.js"></script>
     <title>Heart Rate Monitor Application</title>
 </head>
 
@@ -42,8 +44,7 @@
     <div id="container">
         <div id="physician">
             <div id="physician-header">
-                <h1
-                    style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center; color: white; font-size: 39px; margin-bottom: 25px;">
+                <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-align: center; color: white; font-size: 39px; margin-bottom: 25px;">
                     List of Patients</h1>
                 <p>Welcome, physician. Choose a patient from the list below to receive a more detailed set of information.</p>
             </div>
@@ -54,17 +55,16 @@
                     <label for="patient-name">Patient Name:</label>
                     <select name="patient-name" id="patient-name">
                         <option value = "none" selected disabled hidden>Select an Option</option>
-                        <option value="Insert a value1">Patient 1</option>
-                        <option value="Insert a value2">Patient 2</option>
-                        <option value="Insert a value3">Patient 3</option>
-                        <option value="Insert a value4">Patient 4</option>
                     </select>
                     <br>
                     <button type="submit" id="patient-button">Choose</button>
                 </form>
                 
                 
+
+                
             </div>
+            <canvas id="graph" style="width:100%;max-width:700px"></canvas>
         </div>
     </div>
 

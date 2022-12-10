@@ -157,13 +157,44 @@ router.get("/loadData", function (req, res) {
         
 
         // Send back email and last access
-        Physician.find({ email: decoded.email }, function (err, patients) {
+        Physician.find({ email: decoded.email }, function (err, physician) {
             if (err) {
                 res.status(400).json({ success: false, message: "Error contacting DB. Please contact support." });
             }
             else {
-                console.log(patients);
-                res.status(200).json({patients:patients});
+                res.status(200).json({patients: [
+                    {   
+                        name: "Susan",
+                        readings: [
+                            {
+                                heartRate: 65,
+                                bloodOxygen: 99,
+                                time: new Date('2022-12-9T03:24:00')
+                            },
+                            {
+                                heartRate: 73,
+                                bloodOxygen: 90,
+                                time: new Date('2022-12-9T03:30:00')
+                            }
+                        ]
+                    },
+                    {   
+                        name: "Tom",
+                        readings: [
+                            {
+                                heartRate: 73,
+                                bloodOxygen: 98,
+                                time: new Date('2022-12-9T03:24:00')
+                            },
+                            {
+                                heartRate: 93,
+                                bloodOxygen: 100,
+                                time: new Date('2022-12-9T03:30:00')
+                            }
+                        ]
+                    }
+                ]
+                });
             }
         });
     }
