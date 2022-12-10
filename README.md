@@ -14,6 +14,8 @@ You can start this website on a server or on localhost.
  3. Type npm install to download any dependencies not alreading installed on your device.
  4. To start the website, run the following: `npm run devstart`
  5. Go to either localhost/3000 or your server url/3000 to view website.
+ 6. Click the 'Settings and more' button at the top right of the browser window to change the amount of zoom on the website's contents. This step determines whether or not the visuals match
+    with what they are intended to look like.
 
 This system uses a Particle Argon device integrated with a Heart Rate Sensor to collect and send data to the cloud. If you want to setup a device system hardware that will connect to our server, follow the instructions below:
  1. Once acquiring a Particle Argon and Heart Rate Sensor (MAX30102 Pulse Detection Blood Oxygen), connect them along with an rgb led using the following wiring: 
@@ -41,6 +43,7 @@ This system uses a Particle Argon device integrated with a Heart Rate Sensor to 
 
  
  7. Now all you need to do is register your device in your account in our website and it should be integrated! To find the device Id, go to particle console. If you haven't already registered your device there, do so. And then the device ID will be shown in the Devices tab. Copy and past that id into the form on our website to add the device.
+
 
 ## Links
 This is the link to our AWS server: http://ec2-18-237-50-20.us-west-2.compute.amazonaws.com:3000/
