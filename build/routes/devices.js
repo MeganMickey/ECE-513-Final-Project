@@ -53,8 +53,9 @@ router.post("/healthData", function(req, res){
     else{
       patient.readings.push(newReading);
       console.log("saved new reading.")
+      console.log(patient.readings);
     }
-  })
+  });
   
 });
 
