@@ -84,13 +84,17 @@
     background-color: #FF8C00;
   }
 
-  #container {
+  #info-container {
     min-height: calc(60vh - 40px * 2);
     transform: translate(20%, 12%);
     display: grid;
     grid-template-columns: 25% 50%;
     border-radius: 10px;
     
+  }
+  
+  #graph-container{
+    transform: translate(130%, -110%);
   }
   
   #patientD {
@@ -133,3 +137,6 @@
     color: white;
   }
   
+  #big-container {
+    flex-direction: row;
+  }

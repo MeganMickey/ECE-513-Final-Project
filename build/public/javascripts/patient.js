@@ -2,7 +2,8 @@
 //const express = require('express');
 
 
-
+var curr_patient;
+var curr_date;
 //------------------------------------------------------------------------------------------------
 // As soon as the window loads, check if the user is logged in.
 //------------------------------------------------------------------------------------------------
@@ -40,7 +41,8 @@ function validateToken() {
         .done((data, textStatus, jqXHR) => {
 
             // Sends the data to a function that loada the data on to the page.
-            loadPageElements(data[0])
+            curr_patient = data[0];
+            loadPageElements(data[0]);
         })
         .fail((data, textStatus, jqXHR) => {
             //window.alert('Error 403: You are not logged in.\nYou must login.');
@@ -52,10 +54,19 @@ function validateToken() {
 function loadPageElements(userData)
 {
 
-    console.log(userData.readings);
+    console.log(userData.name);
 
     $("#patient-header > h1 ").html(`${userData.name}'s Weekly Summary`);
     $("#patient-header > p ").html(`${userData.name}'s average, maxmimum, and minimum heart rate for the past seven days is displayed below.`);
 
+    
 
 }
+
+
+$("#date-button").click(function () {
+    console.log("go button pressed");
+    curr_date = new Date($("#date-picker").getYear(), $("#date-picker").getMonth(), $("#date-picker").getFullYear());
+
+    window.location = "patient_detailedview";
+});
