@@ -50,7 +50,7 @@ This is the link to our AWS server: http://ec2-18-237-50-20.us-west-2.compute.am
 
 This is the link to our demo video: https://drive.google.com/drive/folders/1u-MiMhioLOl0ORYVXcW7Sdi6oj5LRz-f?usp=sharing
 
-This is the link to our pitch video: 
+This is the link to our pitch video: https://drive.google.com/file/d/10GZHyQqEPqIQXk2yN8pJfF7pAV-V5qKO/view?usp=share_link 
 
 ## Login Credentials
 Here are some login credentials for a previously created patient and physician if you use our aws server:
