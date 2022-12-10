@@ -43,8 +43,8 @@ function validateToken() {
             loadPageElements(data[0])
         })
         .fail((data, textStatus, jqXHR) => {
-            window.alert('Error 403: You are not logged in.\nYou must login.');
-            window.location = "login.html";
+            //window.alert('Error 403: You are not logged in.\nYou must login.');
+            //window.location = "login.html";
         });
 }
 
