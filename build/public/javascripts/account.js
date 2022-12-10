@@ -1,3 +1,9 @@
+//----------------------------------------
+// Global Variables
+//----------------------------------------
+var userData;
+
+
 addEventListener("load", () => {
 
     validateToken();
@@ -18,21 +24,24 @@ function validateToken() {
         window.location = 'login.html';
     }
 
-    
+
     // Makes Ajax call to see if user is logged in.
-      $.ajax({
-        
+    $.ajax({
+
         url: "patients/loadData",
         type: 'POST',
         method: 'GET',
-        headers: { 'x-auth' : window.localStorage.getItem("token") },
+        headers: { 'x-auth': window.localStorage.getItem("token") },
         dataType: 'json'
-        
+
     })
         .done((data, textStatus, jqXHR) => {
 
-            // Sends the data to a function that loada the data on to the page.
-            loadPageElements(data[0])
+            // Aqcuires the user data.
+            userData = data[0];
+            loadPageElements();
+
+
         })
         .fail((data, textStatus, jqXHR) => {
             window.alert('Error 403: You are not logged in.\nYou must login.');
@@ -42,4 +51,28 @@ function validateToken() {
 
 
 
-console.log();
+function loadPageElements() {
+
+
+    $("#name").val(userData.name);
+    $("#physician-select").val(userData.physician);
+    $("#device-id").val(userData.device);
+    $("#email").val(userData.email);
+    $("#password")
+
+
+}
+
+$(function () {
+    $("update-button").on("click", updatePatient);
+    
+});
+
+
+function updatePatient()
+{
+    console.log('button bushed');
+
+}
+
+
