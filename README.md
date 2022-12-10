@@ -40,7 +40,7 @@ This system uses a Particle Argon device integrated with a Heart Rate Sensor to 
 ![image](https://user-images.githubusercontent.com/67599197/206814858-95a3eec8-8091-4ebb-a2f1-28f2e0ccfeda.png)
 
  
- 7. Now all you need to do is register your device in your account in our website and it should be integrated!
+ 7. Now all you need to do is register your device in your account in our website and it should be integrated! To find the device Id, go to particle console. If you haven't already registered your device there, do so. And then the device ID will be shown in the Devices tab. Copy and past that id into the form on our website to add the device.
 
 ## Links
 This is the link to our AWS server: http://ec2-18-237-50-20.us-west-2.compute.amazonaws.com:3000/
