@@ -35,9 +35,10 @@ This system uses a Particle Argon device integrated with a Heart Rate Sensor to 
     - Request type: POST
     - Request format: JSON
     - In advanced settings, the Custom JSON data should look like this:
-    ![image](https://user-images.githubusercontent.com/67599197/206814693-5672edb3-f154-4fa4-bfe7-16041194de7c.png)
-    Then save this webhook too.
     
+    Then save this webhook too.
+    ![image](https://user-images.githubusercontent.com/67599197/206814858-95a3eec8-8091-4ebb-a2f1-28f2e0ccfeda.png)
+
  6. Now all you need to do is register your device in your account in our website and it should be integrated!
 
 ## Links
