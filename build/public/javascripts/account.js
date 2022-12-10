@@ -75,39 +75,44 @@ $(function () {
 });
 
 function updatePatient() {
-    
+
 
 
     // If the Physicians don't match, then update the Physician
-    if(!($("#physician-select").val() == userData.physician))
-    {
-
+    if (!($("#physician-select").val() == userData.physician) && $("#physician-select").val != "") {
+        console.log("physicians dont match");
     }
 
     // If the devices don't match, then update the device.
-    if(!($("#device-id").val() === userData.device))
-    {
+    if (!($("#device-id").val() === userData.device) && $("#device-id").val() != "") {
+        console.log("devices dont match");
 
     }
 
     // If the emails don't match, then update the email
-    if(!($("#email").val() === userData.email))
-    {
+    if (!($("#email").val() === userData.email) && $("#email").val != "") {
+        console.log("emails dont match");
 
     }
 
-    
-    
-    
+
+
+
     // If the names don't match, then update name
-    if(!(userData.name === ($("#name").val())))
-    {
+    if (!(userData.name === ($("#name").val())) && $("#physician-select").val != "") {
         console.log("names dont match");
     }
-    // $("#physician-select").val(userData.physician);
-    // $("#device-id").val(userData.device);
-    // $("#email").val(userData.email);
-    // $("#password")
+
+
+    if ($("#new-password").val() != "") {
+        
+        let nonMatchingPasswords = !($("#new-password").val() === $("#repeat-password").val());
+        if(nonMatchingPasswords)
+        {
+            window.alert('New Passwords Must Match in order to change password.')
+        }
+
+    }
 
 
 }
