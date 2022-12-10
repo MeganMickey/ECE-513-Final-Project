@@ -27,24 +27,18 @@ This system uses a Particle Argon device integrated with a Heart Rate Sensor to 
     - Request type: POST
     - Request format: JSON
 
-Then save the webhook
-The next should have these parameters:
+   Then save the webhook
+   The next should have these parameters:
+
     - event name: healthData
     - URL: your_url/devices/healthData
     - Request type: POST
     - Request format: JSON
-    - Go to Custom JSON data an paste this:
-    {
-  "event": "{{{PARTICLE_EVENT_NAME}}}",
-  "json": {
-    "hr": "{{{heart_rate}}}",
-    "spo2": "{{{spo2}}}",
-    "rdtm": "{{{read_time}}}"
-  },
-  "coreid": "{{{PARTICLE_DEVICE_ID}}}",
-  "published_at": "{{{PARTICLE_PUBLISHED_AT}}}"
-}
-
+    - In advanced settings, the Custom JSON data should look like this:
+    ![image](https://user-images.githubusercontent.com/67599197/206814693-5672edb3-f154-4fa4-bfe7-16041194de7c.png)
+    Then save this webhook too.
+    
+ 6. Now all you need to do is register your device in your account in our website and it should be integrated!
 
 ## Links
 This is the link to our AWS server: http://ec2-18-237-50-20.us-west-2.compute.amazonaws.com:3000/
