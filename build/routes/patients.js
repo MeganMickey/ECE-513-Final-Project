@@ -172,7 +172,7 @@ router.post("/logIn", function (req, res) {
         }
         else {
             if (bcrypt.compareSync(req.body.password, patient.passwordHash)) {
-                const token = jwt.encode({ email: patient.email, role: "patient"}, secret);
+                const token = jwt.encode({ email: patient.email, role: "patient" }, secret);
                 //update user's last access time
                 patient.lastAccess = new Date();
                 patient.save((err, patient) => {
@@ -190,7 +190,7 @@ router.post("/logIn", function (req, res) {
 
 
 //---------------------------------------------------------------------------------
-// This rout is called whenever the patient's data must be loaded. Requires 
+// This route is called whenever the patient's data must be loaded. Requires 
 //--------------------------------------------------------------------------------
 router.get("/loadData", function (req, res) {
 
@@ -207,7 +207,7 @@ router.get("/loadData", function (req, res) {
         // Reading the token.
         const decoded = jwt.decode(token, secret);
 
-        
+
 
         // Send back email and last access
         Patient.find({ email: decoded.email }, function (err, patient) {
@@ -215,7 +215,7 @@ router.get("/loadData", function (req, res) {
                 res.status(400).json({ success: false, message: "Error contacting DB. Please contact support." });
             }
             else {
-   
+
                 res.status(200).json(patient);
             }
         });
@@ -224,40 +224,33 @@ router.get("/loadData", function (req, res) {
         res.status(401).json({ success: false, message: "Invalid JWT" });
     }
 
-    /*
-    if (!req.body.email || !req.body.password) {
-        res.status(401).json({ error: "Missing email and/or password" });
-        return;
-    }
-    // Get user from the database
-    Patient.findOne({ email: req.body.email }, function (err, patient) {
-        if (err) {
-            res.status(400).send(err);
 
-        }
-        else if (!patient) {
-            // Username not in the database
-            res.status(401).json({ error: "Email is not associated with a patient account." });
-        }
-        else {
-            if (bcrypt.compareSync(req.body.password, patient.passwordHash)) {
-                const token = jwt.encode({ email: patient.email }, secret);
-                //update user's last access time
-                patient.lastAccess = new Date();
-                patient.save((err, patient) => {
-                    console.log("User's LastAccess has been updated.");
-                });
-                // Send back a token that contains the user's username
-                res.status(201).json({ success: true, token: token, message: "Login success!!" });
-            }
-            else {
-                res.status(401).json({ success: false, msg: "Email or password invalid." });
-            }
-        }
-    });
-    */
 });
 
+
+
+router.post("/updateDevice", function (req, res) {
+
+    console.log(req.body.name);
+    console.log(req.body.deviceId);
+    Patient.findOneAndUpdate({ name: req.body.name }, {deviceId: req.body.deviceId}, function (err, doc) {
+        if (err) {
+            let msgStr = `Something wrong....`;
+            res.status(201).json({ message: msgStr, err: err });
+        }
+        else {
+            let msgStr;
+            if (doc == null) {
+                msgStr = `Student (name: ${req.body.name}) info does not exist in DB.`;
+            }
+            else {
+                msgStr = `${req.body.name}'s device Updated: '${req.body.deviceId}' is now the dvice name.`;
+            }
+
+            res.status(201).json({ message: msgStr });
+        }
+    })
+});
 
 
 
