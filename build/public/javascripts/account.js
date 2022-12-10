@@ -87,21 +87,24 @@ function updatePatient() {
 
 
 
+    let filledInDeviceId = $("#device-id").val();
+    let filledInPhysician = $("#physician-select").val();
+    let filledInEmail = $("#email").val();
+    let filledInNewPassword = $("#new-password").val();
+
+
     // If the Physicians don't match, then update the Physician
     // If the devices don't match, then update the device.
-    if (!($("#device-id").val() === userData.device) && $("#device-id").val() != "") {
+    if (!(filledInDeviceId === userData.deviceId) && $("#device-id").val() != "") {
         console.log('Updating Device');
         updateDevice();
     }
-    else if (!($("#physician-select").val() == userData.physician) && $("#physician-select").val != "") {
-        console.log('Updating Physician');
-        updatePhsyician();
-    }
+    // else if (!(filledInPhysician == userData.physician) && $("#physician-select").val != "") {
+    //     console.log('Updating Physician');
+    //     updatePhsyician();
+    // }
     // If the emails don't match, then update the email
-    else if (!($("#email").val() === userData.email) && $("#email").val != "") {
-
-        
-        console.log('Updating Email');
+    else if (!(filledInEmail === userData.email) && $("#email").val != "") {
         updateEmail();
     }
     // // If the names don't match, then update name
@@ -109,20 +112,16 @@ function updatePatient() {
     //     console.log('Updating Updating Name');
     //     updateName();
     // }
-    else if ($("#new-password").val() != "") {
+    else if (filledInNewPassword != "") {
 
         let nonMatchingPasswords = !($("#new-password").val() === $("#repeat-password").val());
         if (nonMatchingPasswords) {
             window.alert('New Passwords Must Match in order to change password.')
         }
 
-        console.log('Updating Password');
         updatePassword();
 
     }
-
-    // Load in new person parameters after the user has changed their account.
-    
 
 
 
@@ -153,10 +152,10 @@ function updateDevice() {
         dataType: 'json'
     })
         .done(function (data, textStatus, jqXHR) {
-            window.alert(JSON.stringify(data));
+            console.log('update device rout sucessful');
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
-            window.alert(JSON.stringify(data));
+            console.log('update device route unsuccessful.');
         });
 
 
@@ -172,7 +171,33 @@ function updateName() {
 
 function updatePassword() {
 
+    txdata = {
+        email: userData.email,
+        currentPassword: $("#old-password").val(),
+        newPassword: $("#new-password").val(),
+        repeatPassword: $("#repeat-password").val(),
+        token: localStorage.getItem('token')
+
+    };
+
+
+    $.ajax({
+        url: '/users/updatePassword',
+        method: 'POST',
+        contentType: 'application/json',
+        headers: { 'x-auth' : window.localStorage.getItem("token") },
+        data: JSON.stringify(txdata),
+        dataType: 'json'
+    })
+        .done(function (data, textStatus, jqXHR) {
+            console.log('password Sucessfully changed.');
+        })
+        .fail(function (data, textStatus, jqXHR) {
+            console.log('password not changed.');
+        });
 }
+
+
 
 
 
