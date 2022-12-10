@@ -52,6 +52,8 @@ This is the link to a folder with our demo videos: https://drive.google.com/driv
 
 This is the link to our pitch video: https://drive.google.com/file/d/10GZHyQqEPqIQXk2yN8pJfF7pAV-V5qKO/view?usp=share_link 
 
+This is the link to our Project Documentation: https://docs.google.com/document/d/1y0P93TU1pQYZfa-QDag-rUbktzs1FxDNU1ok_bU7xCM/edit?usp=sharing
+
 ## Login Credentials
 Here are some login credentials for a previously created patient and physician if you use our aws server:
 Patient
