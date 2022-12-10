@@ -17,26 +17,30 @@ You can start this website on a server or on localhost.
 
 This system uses a Particle Argon device integrated with a Heart Rate Sensor to collect and send data to the cloud. If you want to setup a device system hardware that will connect to our server, follow the instructions below:
  1. Once acquiring a Particle Argon and Heart Rate Sensor (MAX30102 Pulse Detection Blood Oxygen), connect them along with an rgb led using the following wiring: 
- ![image](https://user-images.githubusercontent.com/67599197/206813451-cc1464a4-3d90-497f-ac1d-76595882dc64.png)
- 2. In addition, connect the wifi antenna to the Argon. To connect it to the internet, you will have to download the Particle app, register your device, and connecti it to wifi throught there.
- 3. Then plug your device in to your computer using a micro usb cable capable of sending data. After installing the particle workbench extention in VSCode, create a new project with whatever name you'd like. In the main .ino file, copy the code in our simple_hr.ino file into it. Also, be sure to copy the files heartRate.h, heartRate.cpp, MAX30105.h, MAX30105.cpp, spo2_algorithm.h nad spo2_algorithm.cpp into your project in the src folder.
- 4. Put your device into dfu mode by holding the mode button and tapping the reset button and the waiting until the onboard led starts blinking yellow before releasing the mode button. Then flash the code to your device by clicking the lightning bolt-looking button in the top right corner of VSCode. Now the code should be on your device.
- 5. Next, to connect it to your desired server go the the particle console website and make an acount if you haven't already. In the integrations, tab, create 2 new webhooks. The first should have these parameters:
+![image](https://user-images.githubusercontent.com/67599197/206813451-cc1464a4-3d90-497f-ac1d-76595882dc64.png)
+ 3. In addition, connect the wifi antenna to the Argon. To connect it to the internet, you will have to download the Particle app, register your device, and connecti it to wifi throught there.
+ 4. Then plug your device in to your computer using a micro usb cable capable of sending data. After installing the particle workbench extention in VSCode, create a new project with whatever name you'd like. In the main .ino file, copy the code in our simple_hr.ino file into it. Also, be sure to copy the files heartRate.h, heartRate.cpp, MAX30105.h, MAX30105.cpp, spo2_algorithm.h nad spo2_algorithm.cpp into your project in the src folder.
+ 5. Put your device into dfu mode by holding the mode button and tapping the reset button and the waiting until the onboard led starts blinking yellow before releasing the mode button. Then flash the code to your device by clicking the lightning bolt-looking button in the top right corner of VSCode. Now the code should be on your device.
+ 6. Next, to connect it to your desired server go the the particle console website and make an acount if you haven't already. In the integrations, tab, create 2 new webhooks. The first should have these parameters:
     - event name: timeReq
     - URL: your_url/devices/timeRec
     - Request type: POST
     - Request format: JSON
-  Then save the webhook
-   The next should have these parameters:
+   
+     Then save the webhook
+   
+ 6. The next should have these parameters:
     - event name: healthData
     - URL: your_url/devices/healthData
     - Request type: POST
     - Request format: JSON
     - In advanced settings, the Custom JSON data should look like this:
-    Then save this webhook too.
-    ![image](https://user-images.githubusercontent.com/67599197/206814858-95a3eec8-8091-4ebb-a2f1-28f2e0ccfeda.png)
+    
+  
+![image](https://user-images.githubusercontent.com/67599197/206814858-95a3eec8-8091-4ebb-a2f1-28f2e0ccfeda.png)
 
- 6. Now all you need to do is register your device in your account in our website and it should be integrated!
+ 
+ 7. Now all you need to do is register your device in your account in our website and it should be integrated!
 
 ## Links
 This is the link to our AWS server: http://ec2-18-237-50-20.us-west-2.compute.amazonaws.com:3000/
