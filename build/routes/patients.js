@@ -172,7 +172,7 @@ router.post("/logIn", function (req, res) {
         }
         else {
             if (bcrypt.compareSync(req.body.password, patient.passwordHash)) {
-                const token = jwt.encode({ email: patient.email }, secret);
+                const token = jwt.encode({ email: patient.email, role: "patient"}, secret);
                 //update user's last access time
                 patient.lastAccess = new Date();
                 patient.save((err, patient) => {
