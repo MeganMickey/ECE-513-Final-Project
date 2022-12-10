@@ -1,11 +1,12 @@
 
-
+/*The css that affects these beginning ID's create the background using an image, a navigation bar with sections, and a logo*/
 #banner {
   width: 100%;
   height: 100vh;
   background-image: linear-gradient(rgba(20, 50, 150, 0.50), rgba(0, 0, 0, 0.75)), url("../images/globalCapture.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 #navbar {
@@ -45,6 +46,7 @@
   font-size: 26px;
 }
 
+/*The navigation menu's sections have a colored underline, but does not appear until the mouse hovers above it.*/
 #navbar ul li::after {
   content: '';
   height: 3px;
@@ -56,10 +58,12 @@
   transition: 0.5s;
 }
 
+/*When the mouse hovers over the section, the underline is shown.*/
 #navbar ul li:hover:after {
   width: 100%;
 }
 
+/*The dropdown menu*/
 #dropdown-content {
   top: 41px;
   text-align: center;
@@ -81,10 +85,12 @@
   display: block;
 }
 
+/*When the mouse hovers over the contents of the dropdown menu, the background color changes.*/
 #dropdown-content a:hover {
   background-color: #FF8C00;
 }
 
+/*Set the length of the text input and move contents to near the center of the page accordingly.*/
 #container {
   min-height: calc(60vh - 40px * 2);
   transform: translate(30.3%, 12%);
@@ -124,6 +130,7 @@
   gap: 35px;
 }
 
+/*Modify the size of the text and password input, and the rest of the login inputs*/
 input[type = 'text'], input[type = 'password'] {
   border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.85);
@@ -135,6 +142,7 @@ input[type = 'text'], input[type = 'password'] {
   font-size: 18px;
   border-radius: 100px;
 }
+
 #checkbox {
   display: flex;
   align-items: center;

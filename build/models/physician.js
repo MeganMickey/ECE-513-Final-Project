@@ -18,6 +18,10 @@ const physicianSchema = new Schema({
         type: String,
         required: true
     },
+    //When was the last access?
+    lastAcces: {
+        type: Date
+    },
     // The Physician stores an array of patients
     patients: {
         type: [{
