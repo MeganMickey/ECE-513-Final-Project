@@ -2,9 +2,9 @@
 
 
 
-//----------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
 // Global Variables
-//----------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
 var userData;
 
 
@@ -16,6 +16,9 @@ addEventListener("load", () => {
 });
 
 
+//------------------------------------------------------------------------------------------------------------------------
+// 
+//------------------------------------------------------------------------------------------------------------------------
 function validateToken() {
 
 
@@ -74,33 +77,34 @@ $(function () {
     $('#update-button').on("click", updatePatient);
 });
 
+
+//------------------------------------------------------------------------------------------------------------------------
+// This function checks if any of the parameters inside the user's info have changed and updates them accordingly.
+//------------------------------------------------------------------------------------------------------------------------
 function updatePatient() {
 
 
 
     // If the Physicians don't match, then update the Physician
     if (!($("#physician-select").val() == userData.physician) && $("#physician-select").val != "") {
-        console.log("physicians dont match");
+
+        updatePhsyician();
     }
 
     // If the devices don't match, then update the device.
     if (!($("#device-id").val() === userData.device) && $("#device-id").val() != "") {
-        console.log("devices dont match");
-
+        updateDevice();
     }
 
     // If the emails don't match, then update the email
     if (!($("#email").val() === userData.email) && $("#email").val != "") {
-        console.log("emails dont match");
 
+        updateEmail();
     }
-
-
-
 
     // If the names don't match, then update name
     if (!(userData.name === ($("#name").val())) && $("#physician-select").val != "") {
-        console.log("names dont match");
+        updateName();
     }
 
 
@@ -112,9 +116,32 @@ function updatePatient() {
             window.alert('New Passwords Must Match in order to change password.')
         }
 
+        updatePassword();
+
     }
 
 
 }
+
+function updatePhsyician(){
+
+}
+
+function updateDevice(){
+
+}
+
+function updateEmail(){
+
+}
+
+function updateName(){
+
+}
+
+function updatePassword(){
+
+}
+
 
 
