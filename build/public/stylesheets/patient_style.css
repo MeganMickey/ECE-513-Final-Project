@@ -121,7 +121,7 @@ input[type = 'text'], input[type = 'date'] {
   background-color: rgba(255, 255, 255, 0.85);
   height: 30px;
   padding: 0 2rem;
-  width: 86%;
+  width: 72.5%;
   outline: none;
   transition: background .5s;
   font-size: 18px;
