@@ -1,3 +1,7 @@
+
+
+
+
 //----------------------------------------
 // Global Variables
 //----------------------------------------
@@ -63,15 +67,48 @@ function loadPageElements() {
 
 }
 
+
+
+
 $(function () {
-    $("update-button").on("click", updatePatient);
-    
+    $('#update-button').on("click", updatePatient);
 });
 
+function updatePatient() {
+    
 
-function updatePatient()
-{
-    console.log('button bushed');
+
+    // If the Physicians don't match, then update the Physician
+    if(!($("#physician-select").val() == userData.physician))
+    {
+
+    }
+
+    // If the devices don't match, then update the device.
+    if(!($("#device-id").val() === userData.device))
+    {
+
+    }
+
+    // If the emails don't match, then update the email
+    if(!($("#email").val() === userData.email))
+    {
+
+    }
+
+    
+    
+    
+    // If the names don't match, then update name
+    if(!(userData.name === ($("#name").val())))
+    {
+        console.log("names dont match");
+    }
+    // $("#physician-select").val(userData.physician);
+    // $("#device-id").val(userData.device);
+    // $("#email").val(userData.email);
+    // $("#password")
+
 
 }
 
