@@ -3,7 +3,6 @@ var express = require('express');
 var router = express.Router();
 var Reading = require("../models/reading");
 var Patient = require("../models/patient");
-var Device = require("../models/device");
 
 //Eventually store these in the database
 var start_hour = 6; //Use military time hours
