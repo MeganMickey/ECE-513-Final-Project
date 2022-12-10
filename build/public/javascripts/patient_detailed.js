@@ -1,6 +1,3 @@
-//const validate = require("../../models/patient");
-//const express = require('express');
-
 
 
 //------------------------------------------------------------------------------------------------
@@ -59,8 +56,3 @@ function loadPageElements(userData)
 
 
 }
-
-$("#date-button").on("click", function () {
-    console.log("go button pressed");
-    window.location = "patient_detailedview";
-});
