@@ -39,3 +39,7 @@ function validateToken() {
             window.location = "login.html";
         });
 }
+
+
+
+console.log();
