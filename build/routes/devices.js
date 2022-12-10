@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var Reading = require("../models/reading");
 var Patient = require("../models/patient");
+var Device = require("../models/device");
 
 //Eventually store these in the database
 var start_hour = 6; //Use military time hours
@@ -29,6 +30,7 @@ router.post("/timeReq", function(req, res){
 
 router.post("/healthData", function(req, res){
   console.log(req.body.coreid);
+  var deviceId = req.body.coreid;
   const newReading = new Reading({
     time: req.body.json.rdtm,
     heartRate: req.body.json.hr,
@@ -45,6 +47,16 @@ router.post("/healthData", function(req, res){
       res.status(201);
     }
   });
+  Patient.findOne({deviceId: deviceId}, function (err, patient){
+    if(err){
+      res.status(400).send("Couldn't find patient");
+    }
+    else{
+      patient.readings.push(newReading);
+      console.log("saved new reading.")
+    }
+  })
+  
 });
 
 module.exports = router;
