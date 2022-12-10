@@ -136,5 +136,40 @@ router.get("/status", function (req, res) {
 });
 
 
+//---------------------------------------------------------------------------------
+// This rout is called whenever the physican's patients' data must be loaded. Requires 
+//--------------------------------------------------------------------------------
+router.get("/loadData", function (req, res) {
+
+
+    // See if the X-Auth header is set
+    if (!req.headers["x-auth"]) {
+        return res.status(401).json({ success: false, msg: "Missing X-Auth header" });
+    }
+
+    // X-Auth should contain the token 
+    const token = req.headers["x-auth"];
+    try {
+
+        // Reading the token.
+        const decoded = jwt.decode(token, secret);
+
+        
+
+        // Send back email and last access
+        Physician.find({ email: decoded.email }, function (err, patients) {
+            if (err) {
+                res.status(400).json({ success: false, message: "Error contacting DB. Please contact support." });
+            }
+            else {
+                console.log(patients);
+                res.status(200).json({patients:patients});
+            }
+        });
+    }
+    catch (ex) {
+        res.status(401).json({ success: false, message: "Invalid JWT" });
+    }
+});
 
 module.exports = router;

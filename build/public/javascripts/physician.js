@@ -40,6 +40,7 @@ function validateToken() {
         .done((data, textStatus, jqXHR) => {
 
             // Sends the data to a function that loada the data on to the page.
+            console.log(data)
             loadPageElements(data[0])
         })
         .fail((data, textStatus, jqXHR) => {
@@ -54,8 +55,8 @@ function loadPageElements(userData)
 
     console.log(userData.readings);
 
-    $("#patient-header > h1 ").html(`${userData.name}'s Weekly Summary`);
-    $("#patient-header > p ").html(`${userData.name}'s average, maxmimum, and minimum heart rate for the past seven days is displayed below.`);
+    $("#physician-header > h1 ").html(`${userData.name}'s Weekly Summary`);
+    $("#physician-header > p ").html(`${userData.name}'s average, maxmimum, and minimum heart rate for the past seven days is displayed below.`);
 
 
 }
