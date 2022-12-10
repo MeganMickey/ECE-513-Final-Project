@@ -48,7 +48,7 @@ router.post("/healthData", function(req, res){
   });
   Patient.findOne({deviceId: deviceId}, function (err, patient){
     if(err){
-      res.status(400).send("Couldn't find patient");
+      res.status(400).send(err);
     }
     else{
       patient.readings.push(newReading);
