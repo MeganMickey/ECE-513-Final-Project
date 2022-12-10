@@ -1,5 +1,5 @@
 express-project/node_modules/
-
+nohup.out
 build/node_modules/
 .vscode/settings.json
 build/.vscode/settings.json
