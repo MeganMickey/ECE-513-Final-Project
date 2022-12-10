@@ -38,10 +38,9 @@ const patientSchema = new Schema({
         ref: 'Physician'
 
     },
-    device: {
+    deviceId: {
 
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Device'
+        type: String
 
     }
 

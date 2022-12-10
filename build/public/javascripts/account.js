@@ -1,11 +1,13 @@
-
-
-
-
 //------------------------------------------------------------------------------------------------------------------------
 // Global Variables
 //------------------------------------------------------------------------------------------------------------------------
 var userData;
+
+var isPatient = window.localStorage.getItem('token');
+
+console.log("Token:\n" + isPatient);
+
+
 
 
 addEventListener("load", () => {
@@ -63,7 +65,7 @@ function loadPageElements() {
 
     $("#name").val(userData.name);
     $("#physician-select").val(userData.physician);
-    $("#device-id").val(userData.device);
+    $("#device-id").val(userData.deviceId);
     $("#email").val(userData.email);
     $("#password")
 
@@ -86,60 +88,89 @@ function updatePatient() {
 
 
     // If the Physicians don't match, then update the Physician
-    if (!($("#physician-select").val() == userData.physician) && $("#physician-select").val != "") {
-
-        updatePhsyician();
-    }
-
     // If the devices don't match, then update the device.
     if (!($("#device-id").val() === userData.device) && $("#device-id").val() != "") {
+        console.log('Updating Device');
         updateDevice();
     }
-
+    else if (!($("#physician-select").val() == userData.physician) && $("#physician-select").val != "") {
+        console.log('Updating Physician');
+        updatePhsyician();
+    }
     // If the emails don't match, then update the email
-    if (!($("#email").val() === userData.email) && $("#email").val != "") {
+    else if (!($("#email").val() === userData.email) && $("#email").val != "") {
 
+        
+        console.log('Updating Email');
         updateEmail();
     }
+    // // If the names don't match, then update name
+    // else if (!(userData.name === ($("#name").val())) && $("#physician-select").val != "") {
+    //     console.log('Updating Updating Name');
+    //     updateName();
+    // }
+    else if ($("#new-password").val() != "") {
 
-    // If the names don't match, then update name
-    if (!(userData.name === ($("#name").val())) && $("#physician-select").val != "") {
-        updateName();
-    }
-
-
-    if ($("#new-password").val() != "") {
-        
         let nonMatchingPasswords = !($("#new-password").val() === $("#repeat-password").val());
-        if(nonMatchingPasswords)
-        {
+        if (nonMatchingPasswords) {
             window.alert('New Passwords Must Match in order to change password.')
         }
 
+        console.log('Updating Password');
         updatePassword();
 
     }
 
+    // Load in new person parameters after the user has changed their account.
+    
+
+
 
 }
 
-function updatePhsyician(){
+function updatePhsyician() {
 
 }
 
-function updateDevice(){
+function updateDevice() {
+
+
+    deviceID = $("#device-id").val()
+
+
+    let txdata = {
+        deviceId: $("#device-id").val(),
+        name: userData.name
+    };
+
+    console.log("Changing Device Id to: " + deviceID);
+
+    $.ajax({
+        url: '/patients/updateDevice',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(txdata),
+        dataType: 'json'
+    })
+        .done(function (data, textStatus, jqXHR) {
+            window.alert(JSON.stringify(data));
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            window.alert(JSON.stringify(data));
+        });
+
 
 }
 
-function updateEmail(){
+function updateEmail() {
 
 }
 
-function updateName(){
+function updateName() {
 
 }
 
-function updatePassword(){
+function updatePassword() {
 
 }
 
