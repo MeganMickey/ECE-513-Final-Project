@@ -26,7 +26,7 @@ This system uses a Particle Argon device integrated with a Heart Rate Sensor to 
     - URL: your_url/devices/timeRec
     - Request type: POST
     - Request format: JSON
-   Then save the webhook
+  Then save the webhook
    The next should have these parameters:
     - event name: healthData
     - URL: your_url/devices/healthData
