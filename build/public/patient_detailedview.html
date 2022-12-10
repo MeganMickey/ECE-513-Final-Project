@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link rel="stylesheet" href="stylesheets/patient_detailedview.css" />
-    <script src="javascripts/patient.js"></script>
+    <script src="javascripts/patient_detailed.js"></script>
 
 
     <title>Heart Rate Monitor Application</title>
@@ -25,8 +27,8 @@
             </ul>
         </div> 
     </div>
-
-    <div id="container">
+    <div id="big-container">
+    <div id="info-container">
         <div id="patientD">
             <div id="patientD-header">
                 <h1
@@ -52,7 +54,10 @@
             
         </div>
     </div>
-
+    <div style="width: 600px; height: 400px; background-color: white;" id="graph-container">
+        <canvas id="graph"></canvas>
+    </div>
+    </div>
 
 </body>
 </html>

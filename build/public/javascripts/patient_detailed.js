@@ -1,5 +1,8 @@
 
 
+
+var curr_patient;
+
 //------------------------------------------------------------------------------------------------
 // As soon as the window loads, check if the user is logged in.
 //------------------------------------------------------------------------------------------------
@@ -38,6 +41,7 @@ function validateToken() {
 
             // Sends the data to a function that loada the data on to the page.
             loadPageElements(data[0])
+            curr_patient = data[0];
         })
         .fail((data, textStatus, jqXHR) => {
             //window.alert('Error 403: You are not logged in.\nYou must login.');
@@ -51,8 +55,63 @@ function loadPageElements(userData)
 
     console.log(userData.readings);
 
-    $("#patient-header > h1 ").html(`${userData.name}'s Weekly Summary`);
-    $("#patient-header > p ").html(`${userData.name}'s average, maxmimum, and minimum heart rate for the past seven days is displayed below.`);
 
+    var readings = [
+        {
+            heartRate: 65,
+            bloodOxygen: 99,
+            time: new Date('2022-12-9T03:24:00')
+        },
+        {
+            heartRate: 73,
+            bloodOxygen: 90,
+            time: new Date('2022-12-9T03:30:00')
+        },
+        {
+            heartRate: 73,
+            bloodOxygen: 98,
+            time: new Date('2022-12-9T03:24:00')
+        },
+        {
+            heartRate: 93,
+            bloodOxygen: 100,
+            time: new Date('2022-12-9T03:30:00')
+        }
+    ];
+    
+    var times = ["4:00", "4:30", "5:00", "5:30"];
+    var blood = [];
+    var heart = [];
+    for (var read of readings){
+        //times.push(read.time.getHour+":"+read.time.getMinute);
+        blood.push(read.bloodOxygen);
+        heart.push(read.heartRate);
+    }
+    console.log(times);
 
+    new Chart($("#graph"), {
+        type: 'line',
+        data: {
+            labels: times,
+            datasets: [
+                {
+                    label: "Heart Rate",
+                    data: heart,
+                    borderColor: "#3e95cd",
+                    fill: false
+                }, {
+                    label: "Blood Oxygen Level",
+                    data: blood,
+                    borderColor: "#3cba9f",
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Health Readings'
+            }
+        }
+    });
 }
