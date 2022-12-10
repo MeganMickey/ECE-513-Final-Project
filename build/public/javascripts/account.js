@@ -1,11 +1,3 @@
-//const validate = require("../../models/patient");
-//const express = require('express');
-
-
-
-//------------------------------------------------------------------------------------------------
-// As soon as the window loads, check if the user is logged in.
-//------------------------------------------------------------------------------------------------
 addEventListener("load", () => {
 
     validateToken();
@@ -46,16 +38,4 @@ function validateToken() {
             window.alert('Error 403: You are not logged in.\nYou must login.');
             window.location = "login.html";
         });
-}
-
-
-function loadPageElements(userData)
-{
-
-    console.log(userData.readings);
-
-    $("#patient-header > h1 ").html(`${userData.name}'s Weekly Summary`);
-    $("#patient-header > p ").html(`${userData.name}'s average, maxmimum, and minimum heart rate for the past seven days is displayed below.`);
-
-
 }
